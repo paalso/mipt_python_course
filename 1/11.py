@@ -16,7 +16,7 @@ def main():
     for i in range(10):
         radius += step
         turtle_helper.draw_circle(t, radius, 90)
-        turtle_helper.draw_circle(t, radius, 270)
+        turtle_helper.draw_circle(t, radius, 90, counterclockwise = False)
 
     wn.mainloop()
 
