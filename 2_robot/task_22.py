@@ -14,7 +14,7 @@ def fill_row_to_right():
 
 @task
 def task_5_10():
-    move_up = True if wall_is_above() else False
+    move_up = True if not wall_is_above() else False
 
     if move_up:
         while True:
