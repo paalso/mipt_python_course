@@ -16,5 +16,5 @@ def print_pascal_triangle(n):
         prev_list = L
 
 
-N = 6
+N = 30
 print_pascal_triangle(N)
