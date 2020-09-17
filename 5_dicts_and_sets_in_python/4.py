@@ -1,4 +1,4 @@
-#
+# http://judge.mipt.ru/mipt_cs_on_python3/labs/lab23.html#o4
 # http://judge.mipt.ru/mipt_cs_on_python3/labs/lab18.html#o4
 
 # Упражнение № 4. Перевод текста
