@@ -7,8 +7,11 @@ def move(turtle, x, y):
       Set up position of the given turtle
     """
     turtle.penup()
+    old_speed = turtle.speed()
+    turtle.speed(0)
     turtle.setx(x)
     turtle.sety(y)
+    turtle.speed(old_speed)
     turtle.pendown()
 
 
