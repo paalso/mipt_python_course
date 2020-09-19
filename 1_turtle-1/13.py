@@ -1,7 +1,7 @@
 # http://judge.mipt.ru/mipt_cs_on_python3/labs/lab1.html#o13
 # http://cs.mipt.ru/python/lessons/lab2.html#o13
 
-# Упражнение № 11: "смайлик"
+# Упражнение № 13: "смайлик"
 
 import turtle
 import turtle_helper

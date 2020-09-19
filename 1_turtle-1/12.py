@@ -1,7 +1,7 @@
 # http://judge.mipt.ru/mipt_cs_on_python3/labs/lab1.html#o12
 # http://cs.mipt.ru/python/lessons/lab2.html#o12
 
-# Упражнение № 11: "пружина"
+# Упражнение № 12: "пружина"
 
 import turtle
 import turtle_helper
