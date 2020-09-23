@@ -69,5 +69,3 @@ class Vector:
     # Отразить заданный вектор относительно other
         return (self * other.normalize()) * other.normalize() - \
                 (self * other.orthonormalize()) * other.orthonormalize()
-
-

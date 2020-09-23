@@ -15,15 +15,18 @@ def move(turtle, x, y):
     turtle.pendown()
 
 
-def make_window(color, title):
+def make_window(color, title, width=1200, height=900):
     """
       Set up the window with the given background color and title.
       Returns the new window.
     """
-    w = turtle.Screen()
-    w.bgcolor(color)
-    w.title(title)
-    return w
+    # https://stackoverflow.com/questions/56528067/how-can-i-change-the-size-of-my-python-turtle-window
+    wn = turtle.Screen()
+    wn.setup(width + 4, height + 8)
+    wn.setworldcoordinates(0, 0, 1000, 850)
+    wn.bgcolor(color)
+    wn.title(title)
+    return wn
 
 
 def make_turtle(color, size, x = 0, y = 0, shape='turtle'):
@@ -37,6 +40,33 @@ def make_turtle(color, size, x = 0, y = 0, shape='turtle'):
     t.shape(shape)
     move(t, x, y)
     return t
+
+
+def get_border_sizes(wn):
+    x_min, x_max = - wn.window_width() // 2, wn.window_width() // 2
+    y_min, y_max = - wn.window_height() // 2, wn.window_height() // 2
+    return x_min, x_max, y_min, y_max
+
+
+def print_text(x, y, textlines, color="black", fontinfo=("Arial", 15, "normal")):
+    t =  make_turtle(color, 1, x, y, shape="arrow")
+    t.speed(0)
+    for line in textlines:
+        _, fontsize, _ = fontinfo
+        t.write(line, font=fontinfo)
+        move(t, x, y - fontsize * 1.5)
+    move(t, -10, -10)
+    t.penup()
+    del(t)
+
+
+def draw_line(x1, y1, x2, y2, color, size, shape='arrow'):
+    t = make_turtle(color, size, x1, y1, shape)
+    t.pensize(size)
+    t.speed(0)
+    t.goto(x2, y2)
+    t.penup()
+    del(t)
 
 
 def draw_polygon(
