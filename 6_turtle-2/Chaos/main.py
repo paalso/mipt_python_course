@@ -44,7 +44,7 @@ def main():
     BACKGROUND_COLOR = "lightblue"
     WIDTH, HEIGHT = 1000, 850
     wn = turtle_helper.make_window(
-            BACKGROUND_COLOR, "Cannon shooting", WIDTH, HEIGHT)
+            BACKGROUND_COLOR, "Chaos", WIDTH, HEIGHT)
     margin = 8
     width, height = WIDTH - margin, HEIGHT - margin
 
