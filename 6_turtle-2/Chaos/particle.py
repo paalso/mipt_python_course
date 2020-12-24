@@ -33,6 +33,9 @@ class Particle:
     def set_acc(self, vector):
         self.acc = vector
 
+    def is_close(self, other, eps):
+        return self.pos.is_close(other.get_pos(), eps)
+
     def get_kinetic_energy(self):
         return .5 * self.mass * self.vel * self.vel
 

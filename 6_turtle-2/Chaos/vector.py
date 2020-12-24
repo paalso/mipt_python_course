@@ -17,6 +17,12 @@ class Vector:
     def __str__(self):
         return "({})".format(", ".join(map(str, self.vector)))
 
+    def get_coords(self):
+        return self.coords
+
+    def __eq__(self, other):
+        return self.coords == other.get_coords()
+
     def __add__(self, other):
         return Vector(*map(operator.add, self.vector, other.coords()))
 
