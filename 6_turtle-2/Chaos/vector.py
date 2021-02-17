@@ -20,6 +20,9 @@ class Vector:
     def __add__(self, other):
         return Vector(*map(operator.add, self.vector, other.coords()))
 
+    def __eq__(self, other):
+        return self.vector == other.coords()
+
     def __radd__(self, other):
         return self + other
 
@@ -47,9 +50,12 @@ class Vector:
     def length(self):
         return (sum(map(lambda e: e * e, self.vector))) ** 0.5
 
+    def zero_vector(self):
+        return Vector(*[0 for _ in range(len(self.vector))])
+
     def print(self, acc=2):
         rounded = map(lambda e: str(round(e, 2)) , self.vector)
-        print("{}".format(", ".join(L)))
+        print("{}".format(", ".join(rounded)))
 
     def dist(self, other):
         return (self - other).length()
@@ -69,3 +75,13 @@ class Vector:
     # Отразить заданный вектор относительно other
         return (self * other.normalize()) * other.normalize() - \
                 (self * other.orthonormalize()) * other.orthonormalize()
+
+    @staticmethod
+    def summa(vectors):
+        try:
+            _sum = vectors[0].zero_vector()
+            for v in vectors:
+                _sum += v
+            return _sum
+        except:
+            raise ValueError

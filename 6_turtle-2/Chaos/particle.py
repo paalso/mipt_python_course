@@ -61,10 +61,12 @@ class Particle:
             format(*self.energy_info()))
 
     def move(self, dt, F=None):
+        """
+        F- это сила, действующая на объект Particle """
         self.pos = self.pos + self.vel * dt
         self.vel = self.vel + self.acc * dt
         if F:
-            self.acc = F(self) / self.mass
+            self.acc = F / self.mass
 
     def dissipate(self, dissipate_quot):
         """
@@ -85,3 +87,40 @@ class Particle:
         self.dissipate(dissipate_quot)
         if correct_pos:
             correct_pos(self)
+
+    # ???????????????????????????????????????????????????????????????????
+    def inverse_square_force(self, other, G=1):
+        """
+        Сила, действующая по закону обратных квадратов на particle
+        со стороны other
+        G - коэффициент - аналог Гравитационной постоянной """
+        pos = self.get_pos()         # радиус-вектор частицы particle
+        other_pos = other.get_pos()  # радиус-вектор частицы other
+        dist = pos.dist(other_pos)   # расстояние между ними
+
+        # Нужно бы обработать ситуацию, когда внезапно векторы pos и other
+        # или их координаты полностью совпадают, в этом случае сила
+        # вообще то обращается в Inf, но пусть будет так:
+        if pos == other_pos:
+            return pos.zero_vector()
+
+        pos_to_other = other_pos - pos  # вектор от частицы particle к other
+        force = G * self.get_mass() * other.get_mass() * pos_to_other \
+                / dist ** 3
+        return force
+
+    def net_force(self, others, F=None):
+        """
+        Результирующая сила, действующая на particle со стороны others"""
+        if not F:
+            return self.get_pos().zero_vector()
+
+        return sum(lambda other: F(self, other), others)
+
+    def inverse_square_force_net_force(self, others, G=1):
+        """
+        Результирующая сила, действующая на particle со стороны others, если
+        таковые действуют по закону обратных квадратов"""
+        return self.net_force(others, lambda self,
+                other: self.inverse_square_force(other, G))
+
