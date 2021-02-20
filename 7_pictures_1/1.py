@@ -62,17 +62,18 @@ circle(screen, BLACK,
 
 # Глаза
 eye1_apple_x = center_x - 0.5 * radius
+eye1_radis = 0.2 * radius
 eye2_apple_x = center_x + 0.5 * radius
+eye2_radis = 0.15 * radius
 eye_apple_y = center_y - 0.2 * radius
-eye_apple_radius = 0.1 * radius
-eye_radis = 0.2 * radius
+eye_apple_radius = 0.08 * radius
 eye_color = RED
 eye_apple_color = BLACK
 
 draw_eye(screen, eye_color, eye_apple_color, (eye1_apple_x, eye_apple_y),
-        eye_radis, eye_apple_radius)
+        eye1_radis, eye_apple_radius)
 draw_eye(screen, eye_color, eye_apple_color, (eye2_apple_x, eye_apple_y),
-        eye_radis, eye_apple_radius)
+        eye2_radis, eye_apple_radius)
 
 # Рот
 mouth_left_x = eye1_apple_x
@@ -92,7 +93,7 @@ eyebrow1_to_axis_x_angle_grads = -30
 
 eyebrow2_length = 0.87 * radius
 eyebrow2_to_axis_x_angle_grads = 20
-eyebrow2_top_left_coords = center_x + 0.18 * radius, center_y - 0.40 * radius
+eyebrow2_top_left_coords = center_x + 0.18 * radius, center_y - 0.34 * radius
 
 draw_inclined_rect(screen, BLACK, eyebrow1_top_left_coords,
         eyebrow1_to_axis_x_angle_grads, eyebrow1_length, eyebrow_width)
