@@ -21,14 +21,14 @@ def draw_triangle(
             bottom_left_y - (leg ** 2 + half_base ** 2) ** 0.5
     pygame.draw.polygon(screen, color, (bottom_left, bottom_right, top))
 
-    # тут я пытался добавить границу, но на столь мелких изображениях
-    # получается некрасиво; пока опустим, но фрагмент оставлю
-##    bottom_left_x, bottom_left_y = \
-##            bottom_left_x - border_width, bottom_left_y + border_width
-##    bottom_left = bottom_left_x, bottom_left_y
-##    bottom_right = bottom_left_x + base + 2 * border_width, bottom_left_y
-##    top_x, top_y = top
-##    top_y += border_width
-##    top = top_x, top_y
-##    pygame.draw.lines(
-##            screen, border_color, True, (bottom_left, bottom_right, top))
+
+def draw_pricles_pair(screen, bottom_left, base, angle_to_vertical=0):
+    pricles = pygame.image.load('prickles.png')
+    scaled_pricles = pygame.transform.scale(pricles,
+            (base, int(base / pricles.get_width() * pricles.get_height())))
+    rotated_pricles = pygame.transform.rotate(
+            scaled_pricles, - angle_to_vertical)
+    pricles_rect = rotated_pricles.get_rect(bottomleft=bottom_left)
+    print(pricles_rect)
+    screen.blit(rotated_pricles, pricles_rect)
+
