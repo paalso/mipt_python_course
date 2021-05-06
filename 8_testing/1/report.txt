@@ -1,0 +1,44 @@
+Найденные ошибки
+
+even
+=====
+
+even(0) == 0 вместо even(0) == True
+even(-2) == 0 вместо even(-2) == True
+
+
+factorial
+==========
+
+factorial(-1) == -1 вместо factorial(-1) == 1
+factorial(-10) == -1 вместо factorial(-10) == 1
+
+
+palindrome
+===========
+
+Неправильно определяет для
+- строк из одного символа
+- строк из нечетного количества символов
+- строк с пробелами
+
+
+prime
+======
+
+Для n < 0 prime(p) == True вместо prime(p) == False
+prime(0) == True вместо prime(0) == False
+prime(1) == True вместо prime(1) == False
+
+
+sin
+====
+Ошибка где то есть, но где - не знаю
+Ошибку обнаруживает тест
+
+    def test_sin_random_arg(self):
+        x = random.random() * 1000000
+        for _ in range(100):
+            self.assertAlmostEqual(lib.sin(x), math.sin(x))
+
+по-видимому, ф-я sin устроена так, чтобы время от времени случайно выдавать ошибку от случайного аргумента
