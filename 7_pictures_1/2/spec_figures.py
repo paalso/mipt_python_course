@@ -22,13 +22,3 @@ def draw_triangle(
     pygame.draw.polygon(screen, color, (bottom_left, bottom_right, top))
 
 
-def draw_pricles_pair(screen, bottom_left, base, angle_to_vertical=0):
-    pricles = pygame.image.load('prickles.png')
-    scaled_pricles = pygame.transform.scale(pricles,
-            (base, int(base / pricles.get_width() * pricles.get_height())))
-    rotated_pricles = pygame.transform.rotate(
-            scaled_pricles, - angle_to_vertical)
-    pricles_rect = rotated_pricles.get_rect(bottomleft=bottom_left)
-    print(pricles_rect)
-    screen.blit(rotated_pricles, pricles_rect)
-
