@@ -30,7 +30,6 @@ def draw_trees(screen):
         ((0.92 * width, 0), (0.0625 * width, 0.73 * height)),
     ]
     for topleft, size in trunks_data:
-        print(topleft, size)
         pygame.draw.rect(screen, trunks_color, (topleft, size))
 
 
@@ -74,8 +73,18 @@ def draw_hedgehog(screen):
         ((0.66, 0.91), 0)
     ]
 
-    draw_pricles(screen, prickles_data_1)
-    draw_random_pricles(screen, 30)
+##    draw_pricles(screen, prickles_data_1)
+
+    # серия случайных колючек, наклон влево
+    number = 40
+    left = 0.50
+    right = 0.81
+    top = 0.845
+    bottom = 0.92
+    edge_indent = 0.2
+    angles_diapason = (-35, -8)
+    draw_random_pricles(screen, number, left, right, top, bottom,
+            edge_indent, angles_diapason)
 
     # апельсинка 1
     orange_color = (0xc7, 0x71, 0x38)
@@ -83,10 +92,6 @@ def draw_hedgehog(screen):
             screen, (0.54 * width, 0.80 * height,
                     0.07 * width, 0.07 * width), orange_color,
             WHITE, hedgehog_border_width)
-
-    # колючка
-    draw_pricles_pair(screen, (0.53 * width, 0.88 * height),
-            int(0.035 * width), -15)
 
     # апельсинка 2
     orange_color = (0xc7, 0x71, 0x38)
@@ -104,6 +109,17 @@ def draw_hedgehog(screen):
 
     # гриб
     draw_mushroom(screen, (0.60 * width, 0.86 * height), 0.13 * width, 20)
+
+    # серия случайных колючек, наклон вправо
+    number = 12
+    left = 0.57
+    right = 0.80
+    top = 0.86
+    bottom = 0.88
+    edge_indent = 0.0
+    angles_diapason = (0, 10)
+    draw_random_pricles(screen, number, left, right, top, bottom,
+            edge_indent, angles_diapason)
 
     # голова
     spec_figures.draw_bordered_ellipsis(
@@ -138,18 +154,17 @@ def draw_pricles(screen, prickles_data):
         draw_pricles_pair(screen, coord, pricles_width, angle)
 
 
-def draw_random_pricles(screen, number):
+def draw_random_pricles(screen, number,
+    left, right, top, bottom, edge_indent,
+    angles_diapason, pricles_width = int(0.035 * width)):
+
     pricles_width = int(0.035 * width)
 
-    left = 0.505
-    right = 0.81
-    top = 0.845
-    bottom = 0.91
-    edge_indent = 0.2
+    angle_from, angle_to = angles_diapason
 
     k = 0
     while k < number:
-        angle = random.randint(-35, -8)
+        angle = random.randint(angle_from, angle_to)
         width_coef = random.uniform(left, right)
         height_coef = random.uniform(top, bottom)
 
