@@ -1,3 +1,9 @@
+# http://judge.mipt.ru/mipt_cs_on_python3_2015/labs/lab6.html#d
+
+# Задача D
+# =========
+
+
 def read_matrix(n):
     return [list(map(int, input().split())) for _ in range(n)]
 

@@ -1,5 +1,7 @@
 # http://judge.mipt.ru/mipt_cs_on_python3_2015/labs/lab6.html#b
 
+# Задача B
+# =========
 
 def find_coins_demand(array):
     current_change_coins = 0
