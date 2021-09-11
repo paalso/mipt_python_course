@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://cs.mipt.ru/python/lessons/lab4.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Картинки на выставку (часть 1)</title>
+        <link rel="stylesheet" href="./Картинки на выставку (часть 1)_files/main.css">
+        <link rel="icon" type="image/png" href="http://cs.mipt.ru/python/favicon.png">
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <div id="wrap">
+            <header id="banner" class="body">
+                    <img src="./Картинки на выставку (часть 1)_files/logo.png" class="logo">
+                    <nav><ul>
+                        <li><a href="http://cs.mipt.ru/python">Главная</a></li>
+                    </ul></nav>
+            </header><!-- /#banner -->
+            <div id="main" <section="" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://cs.mipt.ru/python/lessons/lab4.html" rel="bookmark" title="Permalink to Картинки на выставку (часть 1)">Картинки на выставку (часть 1)</a></h1>
+    </header>
+    <div class="contents topic" id="id2">
+<p class="topic-title">Содержание</p>
+<ul class="simple">
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#git-github" id="id41">Git и GitHub</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#git" id="id42">Упражнение 1. Git</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#pygame-draw" id="id43">Создание картинок с библиотекой Pygame.draw</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#id4" id="id44">Установка и подключение библиотеки</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#o1" id="id45">Пример №1</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#o2" id="id46">Пример №2</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#id6" id="id47">Задание №1 (пробное)</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#id7" id="id48">Задание №2 (боевое)</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab4.html#o3" id="id49">Задание №3 (на дом)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="git-github">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id41">Git и GitHub</a></h2>
+<p>Система управления версиями (CVS) - один из основных инструментов программиста. Система управления версиями позволяет хранить несколько версий одного и того же документа, при необходимости возвращаться к более ранним версиям, определять, кто и когда сделал то или иное изменение, и многое другое.</p>
+<p>Git — одна из самых популярных систем контроля версиями (CVS). Автор git — <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A2%D0%BE%D1%80%D0%B2%D0%B0%D0%BB%D1%8C%D0%B4%D1%81,_%D0%9B%D0%B8%D0%BD%D1%83%D1%81">Линус Торвальдс</a>.</p>
+<p><a class="reference external" href="https://ru.wikipedia.org/wiki/GitHub">GitHub</a> — крупнейший веб-сервис для хостинга IT-проектов и их совместной разработки.</p>
+<div class="section" id="git">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id42">Упражнение 1. Git</a></h3>
+<p>Пройдите туториал и продемонстрируйте преподавателю тестовый репозиторий на гитхабе.</p>
+<p>1. Зарегистрируйтесь на <a class="reference external" href="https://github.com/">github.com</a> с некоторым именем пользователя, например <em>Ivanov</em>
+(тут и далее вместо <em>Ivanov</em> нужно подставлять имя вашего пользователя,
+а вместо <code>ivanov.ivan@someuniversity.edu</code> вашу настоящую почту).</p>
+<ol class="arabic simple" start="2">
+<li>Создаем новый репозиторий <a class="reference external" href="https://github.com/new">https://github.com/new</a> (или значок <code>+</code> в правом верхнем углу):<ul>
+<li>В качестве имени репозитория задаем <code>infa_2020_ivanov</code></li>
+<li>Доступ оставляем <em>Public</em></li>
+<li>Не забываем поставить галочку <em>"Initialize this repository with a README"</em></li>
+</ul>
+</li>
+</ol>
+<p>3. Откройте терминал (консоль) GNU/Linux или командную строку <a class="reference external" href="https://gitforwindows.org/">Git-bash</a> под M$ Windows.
+Теперь <strong>git clone</strong> — склонируем получившийся репозиторий на свой компьютер и зайдем в папку с репозиторием:</p>
+<div class="highlight"><pre><span></span>$ git clone https://github.com/Ivanov/infa_2020_ivanov
+Cloning into <span class="s1">'infa_2020_ivanov'</span>...
+remote: Counting objects: <span class="m">3</span>, <span class="k">done</span>.
+remote: Total <span class="m">3</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
+Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="k">done</span>.
+$ ls
+infa_2020_ivanov
+$ <span class="nb">cd</span> infa_2020_ivanov
+$ ls
+README.md
+</pre></div>
+<p>Не забудем сконфигурить гит, представившись ему (это обязательно нужно сделать находясь в папке <code>infa_2020_ivanov</code>):</p>
+<div class="highlight"><pre><span></span>git config user.name <span class="s2">"Ivanov Ivan"</span>
+git config user.email ivanov.ivan@someuniversity.edu
+</pre></div>
+<p>Почту указываем как при регистрации.</p>
+<p>4. Теперь у нас локально есть полная и независимая версия нашего репозитория <code>infa_2020_ivanov</code>.
+Она никак явным образом не связана с версией на серверах github'а, однако в гите существуют инструменты
+для обмена данными между разными репозиториями. Иными словами, git - это <em>распределенная</em> система управлениями версиями.</p>
+<ol class="arabic simple" start="5">
+<li>Команда <strong>git log</strong> возвращает историю нашего репозитория. В данный момент в нашей истории ровно один коммит (коммит - это некоторый набор изменений).</li>
+</ol>
+<div class="highlight"><pre><span></span>-&gt; git log
+commit eec733a21cerfb66973991a9357aab735fa40ba4
+Author: Ivanov &lt;ivanov.ivan@someuniversity.edu&gt;
+Date:   Wed Sep <span class="m">16</span> <span class="m">12</span>:06:08 <span class="m">2020</span> +0300
+
+    Initial commit
+</pre></div>
+<p>6. Давайте отредактируем файл <code>README.md</code> и добавим в него что-нибудь.
+Откроем файл <code>README.md</code> и напишем в нем что-нибудь.
+После с помощью <strong>git diff</strong> посмотрим на текущие изменения.
+В "диффе" видно, что была добавлена строчка "it's test project".</p>
+<div class="highlight"><pre><span></span>-&gt; git diff
+diff --git a/README.md b/README.md
+index 21e60f8..285eafa <span class="m">100644</span>
+--- a/README.md
++++ b/README.md
+@@ -1 +1,3 @@
+-# infa_2020_ivanov
+<span class="se">\ </span>No newline at end of file
++# infa_2020_ivanov
++
++it<span class="se">\'</span>s <span class="nb">test</span> project
+</pre></div>
+<p>7. Команда <strong>git status</strong> показывает текущий статус репозитория. Мы видим, что
+сейчас мы находимся в ветке <code>master</code> (основная ветка нашего репозитория).
+Ниже написано, что файл <code>README.md</code> был изменен. Однако он ещё не готов для коммита.</p>
+<div class="highlight"><pre><span></span>-&gt; git status
+<span class="c1"># On branch master</span>
+<span class="c1"># Changes not staged for commit:</span>
+<span class="c1">#   (use "git add &lt;file&gt;..." to update what will be committed)</span>
+<span class="c1">#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)</span>
+<span class="c1">#</span>
+<span class="c1">#    modified:   README.md</span>
+<span class="c1">#</span>
+no changes added to commit <span class="o">(</span>use <span class="s2">"git add"</span> and/or <span class="s2">"git commit -a"</span><span class="o">)</span>
+</pre></div>
+<ol class="arabic simple" start="8">
+<li>Сделаем <strong>git add</strong>, как рекомендует нам команда status.</li>
+</ol>
+<div class="highlight"><pre><span></span>-&gt; git add README.md
+-&gt; git status
+<span class="c1"># On branch master</span>
+<span class="c1"># Changes to be committed:</span>
+<span class="c1">#   (use "git reset HEAD &lt;file&gt;..." to unstage)</span>
+<span class="c1">#</span>
+<span class="c1">#    modified:   README.md</span>
+<span class="c1">#</span>
+</pre></div>
+<p>Теперь <strong>git status</strong> показывает, что изменения в файле <code>README.md</code> готовы для коммита. Если сейчас снова
+измененить <code>README.md</code>, то нужно снова обязательно выполнить <strong>git add</strong>.</p>
+<ol class="arabic simple" start="9">
+<li><strong>git-commit</strong> — закоммитим наши изменения, то есть внесём "квант" изменений в историю развития проекта:</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git commit -m <span class="s2">"Added something to README"</span>
+<span class="o">[</span>master 274f6d5<span class="o">]</span> Added something to README
+ Committer: Ivanov Ivan &lt;ivanov.ivan@someuniversity.edu&gt;
+
+ <span class="m">1</span> file changed, <span class="m">3</span> insertions<span class="o">(</span>+<span class="o">)</span>, <span class="m">1</span> deletion<span class="o">(</span>-<span class="o">)</span>
+</pre></div>
+<ol class="arabic simple" start="10">
+<li>Снова посмотрим (<strong>git log</strong>) на историю нашего репозитория:</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git log
+commit 8e2642d512b11ae43a97b0b4ac68e802d2626f14
+Author: Ivanov Ivan &lt;ivanov.ivan@someuniversity.edu&gt;
+Date:   Wed Nov <span class="m">9</span> <span class="m">14</span>:47:40 <span class="m">2016</span> +0300
+
+    Added something to README
+
+commit eec733a21cerfb66973998a9327aab735fa40ba4
+Author: Ivanov Ivan &lt;ivanov.ivan@someuniversity.edu&gt;
+Date:   Wed Nov <span class="m">9</span> <span class="m">13</span>:36:38 <span class="m">2016</span> +0300
+
+    Initial commit
+</pre></div>
+<p>Теперь в нашем репозитории два коммита.</p>
+<ol class="arabic simple" start="11">
+<li>Давайте сделаем <strong>git push</strong> — отправим ("запушим" на сленге программистов) наши изменения в оригинальный репозиторий на github.com.</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git push
+Username <span class="k">for</span> <span class="s1">'https://github.com'</span>: &lt;username&gt;
+Password <span class="k">for</span> <span class="s1">'https://ivanov@github.com'</span>: &lt;password&gt;
+To https://github.com/Ivanov/infa_2020_ivanov
+   eec733a..8e2642d  master -&gt; master
+</pre></div>
+<p>При git push необходимо будет ввести логин и пароль на GitHub (если, конечно, вы не настроили ssh-аутентификацию :-)).
+Теперь изменения будут доступны для всех.</p>
+<ol class="arabic simple" start="12">
+<li>Существует парная команда <strong>git pull</strong> — которая забирает изменения с оригинального репозитория на сервере.</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git pull
+Already up-to-date.
+</pre></div>
+</div>
+</div>
+<div class="section" id="pygame-draw">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id43">Создание картинок с библиотекой Pygame.draw</a></h2>
+<p>На этом занятии вы будете рисовать графические объекты на языке Python.</p>
+<p>Откройте папку со своим репозиторием <code>infa_2020_ivanov</code>, который вы создали в
+GitHub и склонировали на локальный компьютер.</p>
+<p>Создайте в нём <em>вложенную</em> папку <code>lab3</code>.
+<strong>Все файлы этой лабораторной работы сохраняйте в эту папку, чтобы затем добавить
+их в репозиторий, закоммитить и "запушить" на сервер для сдачи преподавателю.</strong></p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id44">Установка и подключение библиотеки</a></h3>
+<p>Для установки библиотеки следуйте инструкциям на <a class="reference external" href="https://www.pygame.org/wiki/GettingStarted">pygame.org</a></p>
+<p>Чтобы импортировать возможности библиотеки <code>Pygame</code> в вашей программе недостаточно одной инструкции <code>import</code>, нужны ещё некоторые дополнительные действия:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
+
+<span class="c1"># После импорта библиотеки, необходимо её инициализировать:</span>
+<span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="c1"># И создать окно:</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+
+<span class="c1"># здесь будут рисоваться фигуры</span>
+<span class="c1"># ...</span>
+
+<span class="c1"># после чего, чтобы они отобразились на экране, экран нужно обновить:</span>
+<span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="c1"># Эту же команду нужно будет повторять, если на экране происходят изменения.</span>
+
+<span class="c1"># Наконец, нужно создать основной цикл, в котором будут отслеживаться</span>
+<span class="c1"># происходящие события.</span>
+<span class="c1"># Пока единственное событие, которое нас интересует - выход из программы.</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+<p>Помимо команды <code>import pygame</code> для более удобного доступа к функциям рисования,
+можно дополнительно прописать ещё одну строку импорта:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span> <span class="nn">pygame.draw</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+<p>Это позволит вместо <code>pygame.draw.rect(...)</code> писать просто <code>rect(...)</code>.</p>
+<p>Также хорошей практикой является добавление небольшой задержки в главный цикл программы, чтобы не заставлять ее работать "вхолостую", постоянно считывая события, которых, скорее всего, нет. Для этого в <code>pygame</code> есть специальный модуль <code>time</code>. До начала главного цикла создаем объект Clock:</p>
+<div class="highlight"><pre><span></span><span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+</pre></div>
+<p>После этого в главном цикле добавляем строку:</p>
+<div class="highlight"><pre><span></span><span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+<p>Здесь 30 - это максимальный FPS, быстрее которого программа работать не будет. Естественно, можно указать и любое другое значение (которое, кстати, есть смысл записать в отдельную переменную для легкого доступа).</p>
+<div class="section" id="o1">
+<h4><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id45">Пример №1</a></h4>
+<p>Выведем простую картинку. Создайте файл <code>1_draw.py</code>,
+скопируйте туда текст примера №1 и запустите.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span> <span class="nn">pygame.draw</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="n">FPS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">))</span>
+
+<span class="n">rect</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<span class="n">rect</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">polygon</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">[(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span>
+                               <span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)])</span>
+<span class="n">polygon</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="p">[(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span>
+                               <span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">circle</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">175</span><span class="p">),</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">circle</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">175</span><span class="p">),</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+<span class="n">finished</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">while</span> <span class="ow">not</span> <span class="n">finished</span><span class="p">:</span>
+    <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">FPS</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+            <span class="n">finished</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="o2">
+<h4><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id46">Пример №2</a></h4>
+<p>Для создания штриховок можно использовать циклы:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span> <span class="nn">pygame.draw</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="n">FPS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">))</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">y1</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span> <span class="n">y2</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">rect</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">//</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">h</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">line</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="n">h</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+<span class="n">finished</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">while</span> <span class="ow">not</span> <span class="n">finished</span><span class="p">:</span>
+    <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">FPS</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+            <span class="n">finished</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+<p>Все функции модуля <code>pygame.draw</code> в качестве первого аргумента принимают экран, на котором нужно рисовать (приложение может открывать и несколько окон, нужно точно знать, на каком рисовать). Второй аргумент - цвет, заданный кортежем из трех чисел от 0 до 255 в формате RGB. Также возможно наличие четвертого числа - прозрачности. После этого следуют координаты фигуры (для каждой фигуры свой формат задания координат), далее - параметр <code>width</code>. Если передать в этот параметр положительное значение, оно будет означать толщину линии. Если параметр равен 0 (значение по умолчанию), фигура будет полностью закрашеной. Полное описание функций модуля <code>pygame.draw</code> вы можете найти в официальной <a class="reference external" href="https://www.pygame.org/docs/ref/draw.html">документации</a>.</p>
+</div>
+<div class="section" id="id6">
+<h4><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id47">Задание №1 (пробное)</a></h4>
+<p>Первое задание-картинка одинаковое у всех студентов. Нарисовать злой смайлик:</p>
+<img alt="" class="align-center" src="./Картинки на выставку (часть 1)_files/angry_smile.png">
+</div>
+<div class="section" id="id7">
+<h4><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id48">Задание №2 (боевое)</a></h4>
+<p>Второе задание-картинка у всех студентов <em>разное</em>.
+Попросите преподавателя закрепить за вами одно из заданий.
+Возможно, вам будет выдано отдельное задание, не из этого списка.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<tbody valign="top">
+<tr><td><strong>Картинка</strong></td>
+<td><strong>Сложность</strong></td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/1_1.png">1_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/2_1.png">2_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/3_1.png">3_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/4_1.png">4_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/5_1.png">5_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/6_1.png">6_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/7_1.png">7_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/8_1.png">8_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/9_1.png">9_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/10_1.png">10_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/11_1.png">11_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/12_1.png">12_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/13_1.png">13_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/14_1.png">14_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/15_1.png">15_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/16_1.png">16_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/17_1.png">17_1.png</a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Важно!</strong> Результат вашей работы <em>обязательно</em> нужно отправить в свой репозиторий:</p>
+<div class="highlight"><pre><span></span>student@computer:~/$ <span class="nb">cd</span> infa_2020_ivanov
+student@computer:~/infa_2020_ivanov/$ git add lab3
+student@computer:~/infa_2020_ivanov/$ git commit -m <span class="s2">"Классная работа. Нарисовал..."</span> <span class="c1"># здесь можно написать подробности</span>
+student@computer:~/infa_2020_ivanov/$ git push
+</pre></div>
+</div>
+<div class="section" id="o3">
+<h4><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab4.html#id49">Задание №3 (на дом)</a></h4>
+<p>Третье задание является усложнённой версией второго.
+Вам придётся выполнить модификацию своей программы.
+Если вы не успеете выполнить его на занятии, обязательно сделайте задание дома.</p>
+<p>Для скачивания репозитория на домашнем компьютере используйте команду <strong>git clone</strong>, а в дальнейшем
+для подтягивания изменений команду <strong>git pull</strong>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<tbody valign="top">
+<tr><td><strong>Картинка</strong></td>
+<td><strong>Сложность</strong></td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/1_2.png">1_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/2_2.png">2_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/3_2.png">3_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/4_2.png">4_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/5_2.png">5_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/6_2.png">6_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/7_2.png">7_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/8_2.png">8_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/9_2.png">9_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/10_2.png">10_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/11_2.png">11_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/12_2.png">12_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/13_2.png">13_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/14_2.png">14_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/15_2.png">15_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/16_2.png">16_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference external" href="http://cs.mipt.ru/python/images/lab4/17_2.png">17_2.png</a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Важно!</strong> Результат вашей работы <em>обязательно</em> нужно отправить в свой репозиторий:</p>
+<div class="highlight"><pre><span></span>student@computer:~/$ <span class="nb">cd</span> infa_2020_ivanov
+student@computer:~/infa_2020_ivanov/$ git add lab3
+student@computer:~/infa_2020_ivanov/$ git commit -m <span class="s2">"Домашняя работа. Нарисовал..."</span> <span class="c1"># здесь можно написать подробности</span>
+student@computer:~/infa_2020_ivanov/$ git push
+</pre></div>
+</div>
+</div>
+</div>
+
+    </article></div><!-- /.entry-content -->
+
+  
+
+                <section id="extras" class="body">
+                </section><!-- /#extras -->
+            </div>
+        
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Сайт построен с использованием <a href="http://getpelican.com/">Pelican</a>. За основу оформления взята тема от <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>. Исходные тексты программ, приведённые на этом сайте, распространяются под лицензией <a href="https://www.gnu.org/licenses/quick-guide-gplv3.ru.html">GPLv3</a>, все остальные материалы сайта распространяются под лицензией <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+
+</body></html>

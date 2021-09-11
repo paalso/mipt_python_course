@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://cs.mipt.ru/python/lessons/lab5.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Картинки на выставку (часть 2)</title>
+        <link rel="stylesheet" href="./Картинки на выставку (часть 2)_files/main.css">
+        <link rel="icon" type="image/png" href="http://cs.mipt.ru/python/favicon.png">
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <div id="wrap">
+            <header id="banner" class="body">
+                    <img src="./Картинки на выставку (часть 2)_files/logo.png" class="logo">
+                    <nav><ul>
+                        <li><a href="http://cs.mipt.ru/python">Главная</a></li>
+                    </ul></nav>
+            </header><!-- /#banner -->
+            <div id="main" <section="" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://cs.mipt.ru/python/lessons/lab5.html" rel="bookmark" title="Permalink to Картинки на выставку (часть 2)">Картинки на выставку (часть 2)</a></h1>
+    </header>
+    <div class="contents topic" id="id2">
+<p class="topic-title">Содержание</p>
+<ul class="simple">
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab5.html#id3" id="id10">Способы улучшения качества кода</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab5.html#id4" id="id11">Рефакторинг</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab5.html#id6" id="id12">Парадигма структурного программирования. Проектирование сверху-вниз</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab5.html#id7" id="id13">Проработка интерфейсов функций</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab5.html#id8" id="id14">Документация функций</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab5.html#id9" id="id15">Задание недели</a></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab5.html#id10">Способы улучшения качества кода</a></h2>
+<p>При выполнении домашнего задания вы скорее всего столкнулись с проблемой
+изменений своего же собственного кода. На этом занятии вам предстоит научиться
+делать код более понятным и "гибким" — удобным для внесения изменений.</p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab5.html#id11">Рефакторинг</a></h3>
+<p><strong>Рефа́кторинг</strong> (англ. <em>refactoring</em>) или перепроектирование, переработка кода —
+это <strong>процесс изменения внутренней структуры программы, не затрагивающий её
+внешнего поведения и имеющий целью облегчить понимание её работы.</strong></p>
+<p>В основе рефакторинга лежит последовательность небольших эквивалентных (то есть
+сохраняющих поведение) преобразований. Поскольку каждое преобразование маленькое,
+программисту легче проследить за его правильностью, и в то же время вся
+последовательность может привести к существенной перестройке программы и
+улучшению её согласованности и чёткости.</p>
+<p>Просмотрите справочный <a class="reference external" href="https://refactoring.com/catalog/">каталог типичных малых изменений</a>.</p>
+<p>Малыми изменениями сложно изменить принципиальную архитектуру программы.
+Иногда рефакторинг запутанного проекта сделать так сложно, что проще выбросить
+написанную программу и написать её заново. Поэтому важно изначально хорошо
+спроектировать архитектуру программного продукта.</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab5.html#id12">Парадигма структурного программирования. Проектирование сверху-вниз</a></h3>
+<p>Что же такое структурное программирование? Это − парадигма разработки программ с
+помощью представления их в виде иерархической структуры блоков.
+Идея структурного программирования появилась в 1970-х годах у учёного Эдсгера
+Вибе Дейкстры и была популяризована Никлаусом Виртом, создателем широко
+известного в школах языка Pascal.</p>
+<p>В эту парадигму входит всего три пункта:</p>
+<ol class="arabic simple">
+<li>Любая программа состоит из трёх типов конструкций:
+1. последовательное исполнение;
+2. ветвление;
+3. цикл.</li>
+<li>Логически целостные фрагменты программы оформляются в виде подпрограмм.
+В тексте основной программы вставляется инструкция вызова подпрограммы.
+После окончания подпрограммы исполнение продолжается с инструкции,
+следующей за командой вызова подпрограммы.</li>
+<li>Разработка программы ведётся поэтапно методом «сверху вниз».</li>
+</ol>
+<p>Первый пункт важен скорее не тем, что в нём есть, а тем, чего в нём нет:
+в нём нет оператора безусловного перехода goto. Именно это отличает структурное
+программирование от процедурного (процедурное программирование − синоним
+императивного).</p>
+<p>Благодаря пункту два в языках высокого уровня появились новые синтаксические конструкции − функции и процедуры.</p>
+<p>Пункт три − самый важный, и он является сутью парадигмы структурного программирования. Чтобы лучше понять, что представляет собой метод «сверху вниз», рассмотрим конкретный пример. Предположим, наша задача состоит в том, чтобы нарисовать на экране зайчика. Воспользуемся уже имеющейся у нас заготовкой программы с использованием <code>pygame</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span> <span class="nn">pygame.draw</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="n">FPS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">))</span>
+
+<span class="c1"># Здесь мы будем рисовать</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+<span class="n">finished</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">while</span> <span class="ow">not</span> <span class="n">finished</span><span class="p">:</span>
+    <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">FPS</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+            <span class="n">finished</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+<p>В дальнейшем мы не будем воспроизводить весь этот код, а будем работать только над центральной частью. Что ж, давайте ее напишем:</p>
+<div class="highlight"><pre><span></span><span class="n">draw_hare</span><span class="p">()</span>
+</pre></div>
+<p>Вауля! Программа готова. Да, жаль только, что у нас нет такой функции, поэтому программа не работает. Что ж, придется ее написать. Но прежде чем писать функцию, нужно продумать ее интерфейс.</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab5.html#id13">Проработка интерфейсов функций</a></h3>
+<p>Интерфейс функции — это описание того, как функция взаимодействует с окружением: какие параметры принимает и какой результат выдает (речь идет не только о возращаемом значении, но и о действиях, которые функция совершает "вовне" — например, как в нашем случае, вывод на экран изображения). Интерфейс задает стандарт, благодаря которому мы можем данной функцией пользоваться, даже не зная о том, как именно она устроена внутри.</p>
+<p>В идеале (впрочем, на практике это не всегда удается) интерфейс функции нужно задать один раз и в дальнейшем не менять. Изменение внутренней логики работы функции без изменения ее интерфейса будет практически незаметным, а вот изменение интерфейса, который уже используется в разных частях программы, может быть довольно болезненным.</p>
+<p>Поэтому стоит сразу сделать интерфейс функции достаточно гибким, чтобы он обеспечивал достаточную степень универсальности, но при этом не слишком сложным.</p>
+<p>Итак, давайте подумаем над тем, какие параметры рисования зайца нам стоит задавать при вызове функции. Очевидно, что мы должны, как минимум сообщить функции, где рисовать зайца и какого он будет размера. На случай, если мы вдруг захотим рисовать зайцев разных цветов, зададим еще и цвет:</p>
+<div class="highlight"><pre><span></span><span class="n">draw_hare</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+</pre></div>
+<p>Подождите, а что значат эти x и y? Это координаты центра зайца или, может быть, кончика левого уха? В каком формате нужно задавать color? Все это должно быть где-то описано...</p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab5.html#id14">Документация функций</a></h3>
+<p>Интерфейс функции — какие параметры она принимает и что делает — следует описать в документации. В Python есть удобный механизм работы с документацией — документ-строки. В действительности это всего лишь строка в кавычках (обычно эти строки берут в тройные кавычки), записанная в начале функции:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_hare</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+  <span class="sd">'''</span>
+<span class="sd">  Функция рисует зайца на экране.</span>
+<span class="sd">  surface - объект pygame.Surface</span>
+<span class="sd">  x, y - координаты левого верхнего угла изображения</span>
+<span class="sd">  width, height - ширина и высота изобажения</span>
+<span class="sd">  color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">  '''</span>
+</pre></div>
+<p>При создании функции ее документ-строка будет сохранена в специальное поле и будет доступна, например, при вызове функции <code>help</code>:</p>
+<div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">draw_hare</span><span class="p">)</span>
+</pre></div>
+<p>Теперь мы можем прописать вызов функции со всеми нужными параметрами:</p>
+<div class="highlight"><pre><span></span><span class="n">draw_hare</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+</pre></div>
+<p>И вот теперь мы можем приступить к написанию самой функции:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_hare</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">draw_body</span><span class="p">()</span>
+    <span class="n">draw_head</span><span class="p">()</span>
+    <span class="n">draw_ear</span><span class="p">()</span>
+    <span class="n">draw_ear</span><span class="p">()</span>
+    <span class="n">draw_leg</span><span class="p">()</span>
+    <span class="n">draw_leg</span><span class="p">()</span>
+</pre></div>
+<p>Аналогично мы должны продумать и интерфейсы функций для рисования отдельных частей зайца. В данном случае представляется разумным, что они должны принимать примерно тот же набор параметров, что и функция <code>draw_hare</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_body</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует тело зайца.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    width, height - ширина и высота изобажения</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">draw_head</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует голову зайца.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    size - диаметр головы</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">draw_ear</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует ухо зайца.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    width, height - ширина и высота изобажения</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">draw_leg</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует ногу зайца.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    width, height - ширина и высота изобажения</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="k">pass</span>
+</pre></div>
+<p>Теперь можно закончить функцию <code>draw_hare</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_hare</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует зайца на экране.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    width, height - ширина и высота изобажения</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="n">body_width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">body_height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">body_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">body_height</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">draw_body</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">body_y</span><span class="p">,</span> <span class="n">body_width</span><span class="p">,</span> <span class="n">body_height</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+
+    <span class="n">head_size</span> <span class="o">=</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">4</span>
+    <span class="n">draw_head</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">head_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">head_size</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+
+    <span class="n">ear_height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">3</span>
+    <span class="n">ear_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">ear_height</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">ear_x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">head_size</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">head_size</span> <span class="o">//</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="n">draw_ear</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">ear_x</span><span class="p">,</span> <span class="n">ear_y</span><span class="p">,</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">8</span><span class="p">,</span> <span class="n">ear_height</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+
+    <span class="n">leg_height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">16</span>
+    <span class="n">leg_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">leg_height</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">leg_x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="n">draw_leg</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">leg_x</span><span class="p">,</span> <span class="n">leg_y</span><span class="p">,</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="n">leg_height</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+</pre></div>
+<p>Функции рисования отдельных частей зайца можно пока сделать совсем простыми (сделать их более красивыми можно будет позже):</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_body</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует тело зайца.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    width, height - ширина и высота изобажения</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="n">ellipse</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">draw_head</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует голову зайца.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    size - диаметр головы</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="n">circle</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">draw_ear</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует ухо зайца.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    width, height - ширина и высота изобажения</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="n">ellipse</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">draw_leg</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Функция рисует ногу зайца.</span>
+<span class="sd">    surface - объект pygame.Surface</span>
+<span class="sd">    x, y - координаты центра изображения</span>
+<span class="sd">    width, height - ширина и высота изобажения</span>
+<span class="sd">    color - цвет, заданный в формате, подходящем для pygame.Color</span>
+<span class="sd">    '''</span>
+    <span class="n">ellipse</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">height</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+</pre></div>
+<p>Вот что у нас получилось:</p>
+<img alt="" class="align-center" src="./Картинки на выставку (часть 2)_files/hare.png">
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab5.html#id15">Задание недели</a></h2>
+<p>Сделайте себе fork проекта, который даст вам преподаватель (это проект одного
+из ваших товарищей).</p>
+<p>Ваша задача сделать рефакторинг этого кода так, чтобы можно было быстро вносить
+изменения (местоположения объектов, количество, их размер).</p>
+</div>
+
+    </article></div><!-- /.entry-content -->
+
+  
+
+                <section id="extras" class="body">
+                </section><!-- /#extras -->
+            </div>
+        
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Сайт построен с использованием <a href="http://getpelican.com/">Pelican</a>. За основу оформления взята тема от <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>. Исходные тексты программ, приведённые на этом сайте, распространяются под лицензией <a href="https://www.gnu.org/licenses/quick-guide-gplv3.ru.html">GPLv3</a>, все остальные материалы сайта распространяются под лицензией <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+
+</body></html>

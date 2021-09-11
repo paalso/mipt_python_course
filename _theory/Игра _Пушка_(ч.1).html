@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://cs.mipt.ru/python/lessons/lab8.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Игра "Пушка"</title>
+        <link rel="stylesheet" href="./Игра _Пушка_(ч.1)_files/main.css">
+        <link rel="icon" type="image/png" href="http://cs.mipt.ru/python/favicon.png">
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <div id="wrap">
+            <header id="banner" class="body">
+                    <img src="./Игра _Пушка_(ч.1)_files/logo.png" class="logo">
+                    <nav><ul>
+                        <li><a href="http://cs.mipt.ru/python">Главная</a></li>
+                    </ul></nav>
+            </header><!-- /#banner -->
+            <div id="main" <section="" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://cs.mipt.ru/python/lessons/lab8.html" rel="bookmark" title="Permalink to Игра " Пушка""="">Игра "Пушка"</a></h1>
+    </header>
+    <div class="contents topic" id="id2">
+<p class="topic-title">Содержание</p>
+<ul class="simple">
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab8.html#id3" id="id6">Общая информация</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab8.html#id4" id="id7">Стандартные методы</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab8.html#id5" id="id8">Упражнения - игра "Пушка"</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab8.html#o1" id="id9">Упражнение №1</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab8.html#o2" id="id10">Упражнение №2</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab8.html#o3" id="id11">Упражнение №3</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab8.html#id6">Общая информация</a></h2>
+<p>При процедурном программировании программа разбивается на части в соответствии с алгоритмом: каждая функция является составной частью алгоритма. При объектно-ориентированном программировании программа строится как совокупность взаимодействующих объектов. Что же такое объект? С точки зрения объектно-ориентированного подхода, объект - это нечто, обладающее состоянием и поведением. По сути, состояние - это данные, соответствующие объекту, например рост, вес и громкость гавканья собаки. Поведением называется набор операций, которые можно производить с объектом. Например, в случае с собакой: покормить, погладить, погулять. Эти операции, которые можно выполнять над объектом обычно называют методами (по крайней мере в контексте языка Python).</p>
+<p>Часто приходится работать с объектами одной природы. Например, если у нас несколько собак, то у них у всех одинаковые наборы данных (хотя значения могут различаться) и одинаковые методы. Для определения такой "общей природы" вводятся классы. Класс, по сути, есть шаблон объектов - базовое состояние и общее поведение для всех объектов этого класса.
+Объекты одного класса называют экземплярами этого класса. Также, класс является типом данных для объектов.</p>
+<p>В языке Python для определения класса используется оператор class. Рассмотрим следующий пример:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">say_gaw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># имя self для первого аргумента метода это общепринятое но не обязательное правило</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Gaw-gaw'</span><span class="p">)</span>
+
+<span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">another_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">my_dog</span><span class="o">.</span><span class="n">say_gaw</span><span class="p">()</span>      <span class="c1"># вызовется функция Dog.say_gaw с параметром self = my_dog</span>
+<span class="n">another_dog</span><span class="o">.</span><span class="n">say_gaw</span><span class="p">()</span>
+</pre></div>
+<p>Здесь мы описали класс Dog, который задает один метод. При описании методов класса первый аргумент есть ссылка на экземепляр, для которого этот метод вызывается. Далее, мы создали пару собак и позвали для каждой метод say_gaw. Для создания объектов используется имя класса со скобками. Методы вызываются через точку после имени объекта. Заметте, что первый аргумент метода - self - при вызове указывать не нужно, т.к. им становится сам объект (тот для которого зовем метод, его имя перед точкой).</p>
+<p>Для хранения данных в объектах испальзуются атрибуты. Это те самые "свойства" объекта - рост, вес и т.п. Атрибуты могут иметь любой тип данных. Так же как и с обычными переменными в Python, объявлять атрибуты неким специальным образом не нужно, они появляются автоматически, при первом приваивании, следующим образом:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">say_gaw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">angry</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'GAW-GAW'</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Gaw-gaw'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">ping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">angry</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">feed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food_count</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">food_count</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">angry</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">my_dog</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">my_dog</span><span class="o">.</span><span class="n">say_gaw</span><span class="p">()</span>      <span class="c1"># напечатает Gaw-gaw</span>
+<span class="n">my_dog</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+<span class="n">my_dog</span><span class="o">.</span><span class="n">say_gaw</span><span class="p">()</span>      <span class="c1"># напечатает GAW-GAW</span>
+</pre></div>
+<p>Часто для атрибутов хочется иметь некоторое начальное значение. В предыдущем примере есть проблема - если собака попытается гавкнуть до того как ее пнули или покормили, она навернется с ошибкой "AttributeError: 'Dog' object has no attribute 'angry'". Для решения этой проблемы используется метод со специальным именем - __init__, который вызывается автоматически при создании объекта:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">angry</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">say_gaw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">angry</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'GAW-GAW'</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Gaw-gaw'</span><span class="p">)</span>
+
+<span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">my_dog</span><span class="o">.</span><span class="n">say_gaw</span><span class="p">()</span>      <span class="c1"># ошибки нет, напечатает Gaw-gaw</span>
+</pre></div>
+<p>Метод <code>__init__</code> называется конструктором. Собственно, конструктор зовется при выполнении конструкции вида <code>ИмяКласса()</code>, в нашем случае - <code>Dog()</code>. Аргументом <code>self</code> для конструктора становится вновь созданный объект. Конструктор, также как и обычные методы, может иметь дополнительные аргументы кроме <code>self</code>. Эти аргументы передаются при создании объекта, следующим образом:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">angry</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">angry</span> <span class="o">=</span> <span class="n">angry</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="n">count</span>
+
+    <span class="k">def</span> <span class="nf">say_gaw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">angry</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'GAW-'</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'gaw-'</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+
+<span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">my_dog</span><span class="o">.</span><span class="n">say_gaw</span><span class="p">()</span>      <span class="c1"># ошибки нет, напечатает Gaw-gaw</span>
+</pre></div>
+<p>Класс в Python также является объектом. Объект создается с помощью ключевого слова class, как в примерах выше. Таким образом, в предыдущем примере вызов <code>my_dog.say_gaw()</code> эквивалентен вызову <code>Dog.say_gaw(my_dog)</code>. Разобраться, какой объект какому классу принадлежит помогут встроенные функции <code>type</code> и <code>isinstance</code>:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">pass</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">__main__</span><span class="o">.</span><span class="n">A</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">type</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">type</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">int</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">type</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="kc">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="kc">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="kc">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+<span class="kc">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+<span class="kc">True</span>
+</pre></div>
+<p>Примечание: здесь был объявлен, в тестовых целях, пустой класс A - в нем нет никаких методов.</p>
+<p>Нужно заметить также, что методы, которые класс определяет, не будут методами для него (как для объекта), а будут просто атрибутами типа <code>function</code>. Действительно, при вызове <code>Dog.say_gaw(my_dog)</code> никакой дополнительный <code>self</code> уже не передается, функция запускается в том виде, в котором мы ее написали. Это также можно показать следующим образом:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="o">...</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">f</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">function</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">f</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">method</span><span class="s1">'&gt;</span>
+</pre></div>
+<p>То есть, A.f - это функция, а a.f - метод. Метод здесь это объект, который содержит в себе ссылку на объект, за которым этот метод закреплен (в нашем случае это объект <code>a</code>) и ссылку на функцию, которую надо вызывать. Соответственно при вызове метод завет эту функцию, передавя ссылку на свой объект как первый аргумент и прокидывая остальные аргументы.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">m</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">f</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">m</span> <span class="ow">is</span> <span class="n">A</span><span class="o">.</span><span class="n">f</span>
+<span class="kc">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">m</span><span class="o">.</span><span class="vm">__func__</span> <span class="ow">is</span> <span class="n">A</span><span class="o">.</span><span class="n">f</span>
+<span class="kc">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">m</span><span class="o">.</span><span class="vm">__self__</span> <span class="ow">is</span> <span class="n">a</span>
+<span class="kc">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">m</span><span class="o">.</span><span class="vm">__func__</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="vm">__self__</span><span class="p">)</span>
+<span class="n">hello</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">m</span><span class="p">()</span>
+<span class="n">hello</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">f</span><span class="p">()</span>
+<span class="n">hello</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">A</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">hello</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab8.html#id7">Стандартные методы</a></h2>
+<p>Кроме __init__ есть и другие стандартные методы, которые можно определить в описании класса.</p>
+<p>Метод __repr__ должен возвращать текстовую строку, содержащую код (на языке Python), создающую объект, равный данному. Естественно, метод __repr__ должен содержать вызов конструктора, которому передаются в качестве параметров все строки исходного объекта, то есть он должен возвращать строку вида "Person('Иванов', 5)"</p>
+<p>Пример метода __repr__ (для экономии места опустим описание конструктора __init__):</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Dog('"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">angry</span> <span class="o">+</span> <span class="s2">"', "</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+</span> <span class="s2">")"</span>
+</pre></div>
+<p>Таким образом, метод __repr__ возвращает строку с описанием объекта, которое может быть воспринято итерпретатором языка Питон.</p>
+<p>Метод __str__ возвращает строку, являющуюся описанием объекта в том виде, в котором его удобно будет воспринимать человеку. Здесь не нужно выводить имя конструктора, можно, например, просто вернуть строку с содержимым всех полей:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
+</pre></div>
+<p>Метод __str__ будет вызываться, когда вызывается функция str от данного объекта, например, str(Vasya). То есть создавая метод __str__ вы даете указание Питону, как преобразовывать данный объект к типу str.</p>
+<p>Поскольку функция print использует именно функцию str для вывода объекта на экран, то определение метода __str__ позволит выводить объекты на экран удобным способом: при помощи print.</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab8.html#id8">Упражнения - игра "Пушка"</a></h2>
+<div class="section" id="o1">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab8.html#id9">Упражнение №1</a></h3>
+<p>Команда студентов начала разрабатывать игру "Пушка". Для тестирования использовался обфусцированный исходный файл, который позволяет увидеть процесс, но скрывает исходный код: <a class="reference external" href="http://cs.mipt.ru/python/code/lab8/gun_obfuscated.py">obfuscated</a></p>
+<p>В результате празднования окончания сессии компьютер, на котором лежали работающие исходники, был испорчен. На флешке была найдена только промежуточная версия.
+Помогите восстановить работоспособность программы используя имеющийся исходный код: <a class="reference external" href="http://cs.mipt.ru/python/code/lab8/gun.py">gunsource</a></p>
+<p>Подсказка: для начала, исправте код так, чтобы он запускался, и поправте все 'FIXME'.</p>
+</div>
+<div class="section" id="o2">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab8.html#id10">Упражнение №2</a></h3>
+<p>Улучшите программу из №1 добавив 2 цели.</p>
+</div>
+<div class="section" id="o3">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab8.html#id11">Упражнение №3</a></h3>
+<p>Улучшите программу из №2 сделав цели движущимися.</p>
+</div>
+</div>
+
+    </article></div><!-- /.entry-content -->
+
+  
+
+                <section id="extras" class="body">
+                </section><!-- /#extras -->
+            </div>
+        
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Сайт построен с использованием <a href="http://getpelican.com/">Pelican</a>. За основу оформления взята тема от <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>. Исходные тексты программ, приведённые на этом сайте, распространяются под лицензией <a href="https://www.gnu.org/licenses/quick-guide-gplv3.ru.html">GPLv3</a>, все остальные материалы сайта распространяются под лицензией <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+
+</body></html>

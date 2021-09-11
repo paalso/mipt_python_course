@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://cs.mipt.ru/python/lessons/lab3.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Исполнитель "Черепаха" (ч.2)</title>
+        <link rel="stylesheet" href="./Исполнитель _Черепаха_ (ч.2)_files/main.css">
+        <link rel="icon" type="image/png" href="http://cs.mipt.ru/python/favicon.png">
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <div id="wrap">
+            <header id="banner" class="body">
+                    <img src="./Исполнитель _Черепаха_ (ч.2)_files/logo.png" class="logo">
+                    <nav><ul>
+                        <li><a href="http://cs.mipt.ru/python">Главная</a></li>
+                    </ul></nav>
+            </header><!-- /#banner -->
+            <div id="main" <section="" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://cs.mipt.ru/python/lessons/lab3.html" rel="bookmark" title="Permalink to Исполнитель " Черепаха"="" (ч.2)"="">Исполнитель "Черепаха" (ч.2)</a></h1>
+    </header>
+    <div class="contents topic" id="id2">
+<p class="topic-title">Содержание</p>
+<ul class="simple">
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id3" id="id18">Генерация случайных чисел</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id4" id="id19">Упражнение</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id5" id="id20">Списки</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#split-join" id="id21">Методы split и join</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id6" id="id22">Срезы списков</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id7" id="id23">Операции со списками</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id8" id="id24">Генераторы списков</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id9" id="id25">Упражнение</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#python" id="id26">Работа с текстовыми файлами в Python</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id10" id="id27">Открытие файла</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id11" id="id28">Чтение данных из файла</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id12" id="id29">Вывод данных в файл</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id13" id="id30">Закрытие файла</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id14" id="id31">Примеры работы с файлами</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id15" id="id32">Упражнение</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id16" id="id33">Физическое моделирование материальной точки</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab3.html#id17" id="id34">Черепаха как объект</a></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id18">Генерация случайных чисел</a></h2>
+<p>Python порождает случайные числа на основе формулы, так что они не на самом деле случайные, а, как говорят, псевдослучайные.</p>
+<p>Модуль <strong>random</strong> позволяет генерировать случайные числа. Прежде чем использовать модуль, необходимо подключить его с помощью инструкции:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+<p>Пока вам достаточно знать две функции из этого модуля:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%">
+<col width="82%">
+</colgroup>
+<tbody valign="top">
+<tr><td><code>random()</code></td>
+<td>возвращает псевдослучайное число типа float от 0.0 до 1.0</td>
+</tr>
+<tr><td><code>randint(a, b)</code></td>
+<td>возвращает псевдослучайное целое число в промежутке [a, b] включая его границы</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id19">Упражнение</a></h3>
+<p>Нарисуйте при помощи случайных поворотов и перемещений картину броуновских движений.</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.2)_files/chaotic.gif">
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id20">Списки</a></h2>
+<p>Большинство программ работает не с отдельными переменными, а с набором переменных. Например, программа может
+обрабатывать информацию об учащихся класса, считывая список учащихся с клавиатуры или из файла, при этом изменение
+количества учащихся в классе не должно требовать модификации исходного кода программы.</p>
+<p>Для хранения таких данных можно использовать структуру данных, называемую в Питоне список.
+Список представляет собой последовательность элементов, проиндексированных от 0.
+Список можно задать перечислением элементов в квадратных скобках,
+например, список можно задать так:</p>
+<div class="highlight"><pre><span></span><span class="n">Primes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+<span class="n">Rainbow</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Red'</span><span class="p">,</span> <span class="s1">'Orange'</span><span class="p">,</span> <span class="s1">'Yellow'</span><span class="p">,</span> <span class="s1">'Green'</span><span class="p">,</span> <span class="s1">'Blue'</span><span class="p">,</span> <span class="s1">'Indigo'</span><span class="p">,</span> <span class="s1">'Violet'</span><span class="p">]</span>
+</pre></div>
+<p>В списке <code>Primes</code> — 6 элементов, а именно, <code>Primes[0] == 2</code>, <code>Primes[1] == 3</code>, <code>Primes[2] == 5</code>, <code>Primes[3] == 7</code>,
+<code>Primes[4] == 11</code>, <code>Primes[5] == 13</code>. Список Rainbow состоит из 7 элементов, каждый из которых является строкой.</p>
+<p>Также как и символы строки, элементы списка можно индексировать отрицательными числами с конца, например,
+<code>Primes[-1] == 13</code>, <code>Primes[-6] == 2.</code></p>
+<p>Длину списка, то есть количество элементов в нем, можно узнать при помощи функции len, например, <code>len(A) == 6</code>.</p>
+<p>Рассмотрим несколько способов создания и считывания списков. Пустой, т.е. не имеющий элементов список, можно создать
+следующим образом:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+<p>Для добавления элементов в конец спискаиспользуется функция <code>append</code>. Если программа получает на вход количество
+элементов в списке <code>n</code>, а потом <code>n</code> элементов списка по одному в отдельной строке, то организовать считывание списка
+можно так:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()):</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+</pre></div>
+<p>В этом примере создается пустой список, далее считывается количество элементов в списке, затем по одному считываются
+элементы списка и добавляются в его конец.</p>
+<p>Для списков целиком определены следующие операции: конкатенация списков (добавление одного списка в конец другого) и
+повторение списков (умножение списка на число). Например:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">B</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+<p>В результате список <code>C</code> будет равен <code>[1, 2, 3, 4, 5]</code>, а список <code>D</code> будет равен <code>[4, 5, 4, 5, 4, 5]</code>. Это позволяет по-
+другому организовать процесс считывания списков: сначала считать размер списка и создать список из нужного числа
+элементов, затем организовать цикл по переменной <code>i</code> начиная с числа 0 и внутри цикла считывается <code>i</code>-й элемент списка:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+</pre></div>
+<p>Вывести элементы списка <code>A</code> можно одной инструкцией <code>print(A)</code>, при этом будут выведены квадратные скобки вокруг
+элементов списка и запятые между элементами списка. Такой вывод неудобен, чаще требуется просто вывести все элементы
+списка в одну строку или по одному элементу в строке. Приведем два примера, также отличающиеся организацией цикла:</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+<p>Здесь в цикле меняется индекс элемента <code>i</code>, затем выводится элемент списка с индексом <code>i</code>.</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">' '</span><span class="p">)</span>
+</pre></div>
+<p>В этом примере элементы списка выводятся в одну строку, разделенные пробелом, при этом в цикле меняется не индекс
+элемента списка, а само значение переменной. Например, в цикле <code>for elem in ['red', 'green', 'blue']</code> переменная <code>elem</code>
+будет последовательно принимать значения 'red', 'green', 'blue'.</p>
+<div class="section" id="split-join">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id21">Методы split и join</a></h3>
+<p>Выше мы рассмотрели пример считывания списка, когда каждый элемент расположен на отдельной строке. Иногда бывает удобно
+задать все элементы списка при помощи одной строки. В такой случае используется метод <code>split</code>, определённый в строковом
+типе:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+<p>Если при запуске этой программы ввести строку 1 2 3, то список <code>A</code> будет равен <code>['1', '2', '3']</code>. Обратите внимание, что
+список будет состоять из строк, а не из чисел. Если хочется получить список именно из чисел, то можно затем элементы
+списка по одному преобразовать в числа:</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+<p>Используя функции языка map и list то же самое можно сделать в одну строку:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+</pre></div>
+<p>Объяснений, как работает этот пример, пока не будет. Если нужно считать список действительных чисел, то нужно заменить
+тип int на тип float.</p>
+<p>У метода <code>split</code> есть необязательный параметр, который определяет, какая строка будет использоваться в качестве
+разделителя между элементами списка. Например, вызов метода <code>split('.')</code> для строки вернет список, полученный
+разрезанием этой строки по символам '.'.</p>
+<p>Используя «обратные» методы можно вывести список при помощи однострочной команды. Для этого используется метод строки
+<code>join</code>. У этого метода один параметр: список строк. В результате создаётся строка, полученная соединением элементов
+списка (которые переданы в качестве параметра) в одну строку, при этом между элементами списка вставляется разделитель,
+равный той строке, к которой применяется метод. Например, программа</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'***'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+<p>выведет строки <code>red green blue</code>, <code>redgreenblue</code> и <code>red***green***blue</code>.</p>
+<p>Если же список состоит из чисел, то придется использовать еще и функцию map. То есть вывести элементы списка чисел,
+разделяя их пробелами, можно так:</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">A</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id22">Срезы списков</a></h3>
+<p>Со списками, так же как и со строками, можно делать срезы. А именно:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%">
+<col width="90%">
+</colgroup>
+<tbody valign="top">
+<tr><td><code>A[i:j]</code></td>
+<td>срез из <code>j-i</code> элементов <code>A[i], A[i+1], ..., A[j-1]</code>.</td>
+</tr>
+<tr><td><code>A[i:j:-1]</code></td>
+<td>срез из <code>i-j</code> элементов <code>A[i], A[i-1], ..., A[j+1]</code> (то есть меняется порядок элементов).</td>
+</tr>
+<tr><td><code>A[i:j:k]</code></td>
+<td>срез с шагом <code>k</code>: <code>A[i], A[i+k], A[i+2*k],...</code> . Если значение <code>k</code> меньше 0, то элементы идут в противоположном порядке.</td>
+</tr>
+</tbody>
+</table>
+<p>Каждое из чисел <code>i</code> или <code>j</code> может отсутствовать, что означает «начало строки»/ или «конец строки»/</p>
+<p>Списки, в отличии от строк, являются изменяемыми объектами: можно отдельному элементу списка присвоить новое значение. Но можно менять и целиком срезы. Например:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</pre></div>
+<p>Получится список, у которого вместо двух элементов среза <code>A[2:4]</code> вставлен новый список уже из трех элементов. Теперь список стал равен <code>[1, 2, 7, 8, 9, 5]</code>.</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+</pre></div>
+<p>Получится список <code>[40, 2, 30, 4, 20, 6, 10]</code>. Здесь <code>A[::-2]</code> — это список из элементов <code>A[-1], A[-3], A[-5], A[-7]</code>, которым присваиваются значения 10, 20, 30, 40 соответственно.</p>
+<p>Если <strong>не непрерывному</strong> срезу (то есть срезу с шагом <code>k</code>, отличному от 1), присвоить новое значение, то количество элементов в старом и новом срезе обязательно должно совпадать, в противном случае произойдет ошибка <code>ValueError</code>.</p>
+<p>Обратите внимание, <code>A[i]</code> — это <strong>элемент</strong> списка, а не срез!</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id23">Операции со списками</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%">
+<col width="89%">
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">операция</th>
+<th class="head">действие</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><code>x in A</code></td>
+<td>Проверить, содержится ли элемент в списке. Возвращает <code>True</code> или <code>False</code>.</td>
+</tr>
+<tr><td><code>x not in A</code></td>
+<td>То же самое, что <code>not(x in A)</code>.</td>
+</tr>
+<tr><td><code>min(A)</code></td>
+<td>Наименьший элемент списка. Элементы списка могут быть числами или строками, для строк сравнение элементов проводится в лексикографическом порядке.</td>
+</tr>
+<tr><td><code>max(A)</code></td>
+<td>Наибольший элемент списка.</td>
+</tr>
+<tr><td><code>sum(A)</code></td>
+<td>Сумма элементов списка, элементы обязательно должны быть числами.</td>
+</tr>
+<tr><td><code>A.index(x)</code></td>
+<td>Индекс первого вхождения элемента <code>x</code> в список, при его отсутствии генерирует исключение <code>ValueError</code>.</td>
+</tr>
+<tr><td><code>A.count(x)</code></td>
+<td>Количество вхождений элемента <code>x</code> в список.</td>
+</tr>
+<tr><td><code>A.append(x)</code></td>
+<td>Добавить в конец списка <code>A</code> элемент <code>x</code>.</td>
+</tr>
+<tr><td><code>A.insert(i, x)</code></td>
+<td>Вставить в список <code>A</code> элемент <code>x</code> на позицию с индексом <code>i</code>. Элементы списка <code>A</code>, которые до вставки имели индексы <code>i</code> и больше сдвигаются вправо.</td>
+</tr>
+<tr><td><code>A.extend(B)</code></td>
+<td>Добавить в конец списка <code>A</code> содержимое списка <code>B</code>.</td>
+</tr>
+<tr><td><code>A.pop()</code></td>
+<td>Удалить из списка последний элемент, возвращается значение удаленного элемента.</td>
+</tr>
+<tr><td><code>A.pop(i)</code></td>
+<td>Удалить из списка элемент с индексом <code>i</code>, возвращается значение удаленного элемента. Все элементы, стоящие правее удаленного, сдвигаются влево.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id24">Генераторы списков</a></h3>
+<p>Для создания списка, заполненного одинаковыми элементами, можно использовать
+оператор повторения списка, например:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+</pre></div>
+<p>Для создания списков, заполненных по более сложным формулам можно использовать
+list comprehensions или <strong>генераторы списков</strong> (в функциональном
+программировании они называются "списковые включения"): выражения, позволяющие
+заполнить новый список значениями некоторого выражения (формулы).</p>
+<p>Общий вид генератора следующий: <code>[выражение for переменная in список ]</code>, где
+переменная — идентификатор некоторой переменной, список — список значений,
+который принимает данная переменная (как правило, полученный при помощи функции range),
+выражение — некоторое выражение, которым будут заполнены элементы списка,
+как правило, зависящее от использованной в генераторе переменной.</p>
+<p>Вот несколько примеров использования генераторов.</p>
+<p>Квадраты целых чисел:</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+<p>Вот так можно получить список, заполненный случайными числами от -99 до 99
+(используя функцию <code>randint</code> из модуля <code>random</code>):</p>
+<div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+<p>Расширенная форма генератора списка позволяет выполнять отсев по значению.
+Например, здесь список <code>B</code> будет состоять из элементов списка <code>A</code>, которые больше нуля:</p>
+<div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">A</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id25">Упражнение</a></h3>
+<p>Посмотрите на шрифт для написания почтового индекса на конвертах:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.2)_files/zip_font.jpg">
+<p>Воспользуйтесь списками кортежей, чтобы задать рисование Черепашкой таких цифр.
+Нарисуйте на экране индекс 141700.</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.2)_files/zip_codes.gif">
+</div>
+</div>
+<div class="section" id="python">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id26">Работа с текстовыми файлами в Python</a></h2>
+<p>До этого для ввода информации мы использовали исключительно клавиатуру. При этом в большинстве случаев данные,
+считываемые программой, <strong>уже</strong> хранятся на носителе информации в виде <strong>файлов</strong>.</p>
+<p>Для каждого файла, с которым необходимо производить операции ввода-вывода, нужно создать специальный объект – поток.
+Именно с потоками работают программы — использование такого дополнительного слоя <strong>абстракции</strong> позволяет прозрачно
+работать не только с текстовыми файлами, но и, например, с архивами.</p>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id27">Открытие файла</a></h3>
+<p>Открытие файла осуществляется функцией <code>open</code>, которой нужно передать два параметра. Первый параметр — строка, задающая
+имя открываемого файла. Второй параметр — строка, укахывающая режим октрытия файла.</p>
+<p>Существует три режима открытия файлов:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%">
+<col width="82%">
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Режим</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>"r" (read)</td>
+<td>Файл открывается для чтения данных.</td>
+</tr>
+<tr><td>"w" (write)</td>
+<td>Файл открываетсяна запись, при этом содержимое файла очищается.</td>
+</tr>
+<tr><td>"a" (append)</td>
+<td>Файл открывается для добавления данных в конец файла.</td>
+</tr>
+</tbody>
+</table>
+<p>Если второй параметр не задан, то считается, что файл открывается в режиме чтения.</p>
+<p>Функция open возвращает ссылку на <strong>файловый объект</strong>, которую нужно записать в переменную,
+чтобы потом через данный объект работать с этим файлом. Например:</p>
+<div class="highlight"><pre><span></span><span class="nb">input</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'input.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'output.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+</pre></div>
+<p>Здесь открыто два файла (один на чтение, другой на запись) и создано два связанных с ними объекта.</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id28">Чтение данных из файла</a></h3>
+<p>Для файла, открытого на чтение данных, можно несколько методов, позвозволяющих считывать данные. Мы рассмотри
+три из них: <code>readline</code>, <code>readlines</code>, <code>read</code>.</p>
+<p>Метод <code>readline()</code> считывает одну строку из файла (до символа конца строки 'n', возвращается считанная строка вместе с
+символом 'n'). Если считывание не было успешно (достигнут конец файла), то возвращается пустая строка. Для удаления
+символа 'n' из конца файла удобно использовать метод строки <code>rstrip()</code>. Например:</p>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span>
+</pre></div>
+<p>Метод <code>readlines()</code> считывает все строки из файла и возвращает список из всех считанных строк (одна строка — один
+элемент списка). При этом символы 'n' остаются в концах строк.</p>
+<p>Метод <code>read()</code> считывает все содержимое из файла и возвращает строку, которая может содержать символы 'n'. Если методу
+read передать целочисленный параметр, то будет считано не более заданного количества байт. Например, считывать файл
+побайтово можно при помощи метода <code>read(1)</code>.</p>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id29">Вывод данных в файл</a></h3>
+<p>Данные выводятся в файл при помощи метода <code>write</code>, которому в качестве параметра передается одна строка. Этот метод не
+выводит символ конца строки 'n' (как это делает функция <code>print</code> при стандартном выводе), поэтому для перехода на новую
+строку в файле необходимо явно вывести символ 'n'.</p>
+<p>Выводить данные в файл можно и при помощи <code>print</code>, если передать функции еще один именованный параметр <code>file</code>. Например:</p>
+<div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'output.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id30">Закрытие файла</a></h3>
+<p>После окончания работы с файлом необходимо закрыть его при помощи метода <code>close()</code>.</p>
+<p>Чтобы не забыть это сделать можно воспользоваться <em>менеджером контекста</em> with.</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'input.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id31">Примеры работы с файлами</a></h3>
+<p>Следующая программа считывает все содержимое файла <code>input.txt</code>, записывает его
+в переменную <code>s</code>, а затем выводит ее в файл <code>output.txt</code>.</p>
+<div class="highlight"><pre><span></span><span class="n">inp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'input.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'output.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">inp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">inp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+<p>Для простого считывания содержимого файла можно использовать то, что сам файл
+является итерируемым по строкам объектом:</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'input.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s1">'line: "'</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="s1">'"'</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id32">Упражнение</a></h3>
+<p>Перенесите описание способа рисования почтовых цифр (списки движений) в файл.
+Пусть черепаха считывает "шрифт" из файла.</p>
+</div>
+</div>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id33">Физическое моделирование материальной точки</a></h2>
+<p>Используя оператор <code>turtle.goto(x, y)</code> заставьте черепашку двигаться в равномерном поле тяжести,
+отталкиваясь от поверхности (уровень <code>y=0</code>).</p>
+<p>Основные формулы для расчёта нового местоположения черепшки:</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+=</span> <span class="n">Vx</span><span class="o">*</span><span class="n">dt</span>
+<span class="n">y</span> <span class="o">+=</span> <span class="n">Vy</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">ay</span><span class="o">*</span><span class="n">dt</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">Vy</span> <span class="o">+=</span> <span class="n">ay</span><span class="o">*</span><span class="n">dt</span>
+</pre></div>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.2)_files/bouncing.gif">
+</div>
+<div class="section" id="id17">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab3.html#id34">Черепаха как объект</a></h2>
+<p>При помощи конструктора <code>turtle.Turtle()</code> можно создать новый объект черепахи.
+Если поместить эти объекты в список, а потом циклически двигать каждую черепаху
+на нельшое смещение, возникает эффект одновременного движения:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+
+
+<span class="n">number_of_turtles</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">steps_of_time_number</span> <span class="o">=</span> <span class="mi">100</span>
+
+
+<span class="n">pool</span> <span class="o">=</span> <span class="p">[</span><span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="s1">'turtle'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_turtles</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">unit</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+    <span class="n">unit</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">unit</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps_of_time_number</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="n">unit</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p>При помощи подобного кода заставье черепах вести себя как идеальный газ в сосуде.
+Если это слишком просто, то как реальный газ.</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.2)_files/gas.gif">
+</div>
+
+    </article></div><!-- /.entry-content -->
+
+  
+
+                <section id="extras" class="body">
+                </section><!-- /#extras -->
+            </div>
+        
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Сайт построен с использованием <a href="http://getpelican.com/">Pelican</a>. За основу оформления взята тема от <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>. Исходные тексты программ, приведённые на этом сайте, распространяются под лицензией <a href="https://www.gnu.org/licenses/quick-guide-gplv3.ru.html">GPLv3</a>, все остальные материалы сайта распространяются под лицензией <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+
+</body></html>

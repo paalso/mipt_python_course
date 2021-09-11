@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://cs.mipt.ru/python/lessons/lab2.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Исполнитель "Черепаха" (ч.1)</title>
+        <link rel="stylesheet" href="./Исполнитель _Черепаха_ (ч.1)_files/main.css">
+        <link rel="icon" type="image/png" href="http://cs.mipt.ru/python/favicon.png">
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <div id="wrap">
+            <header id="banner" class="body">
+                    <img src="./Исполнитель _Черепаха_ (ч.1)_files/logo.png" class="logo">
+                    <nav><ul>
+                        <li><a href="http://cs.mipt.ru/python">Главная</a></li>
+                    </ul></nav>
+            </header><!-- /#banner -->
+            <div id="main" <section="" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://cs.mipt.ru/python/lessons/lab2.html" rel="bookmark" title="Permalink to Исполнитель " Черепаха"="" (ч.1)"="">Исполнитель "Черепаха" (ч.1)</a></h1>
+    </header>
+    <div class="contents topic" id="id2">
+<p class="topic-title">Содержание</p>
+<ul class="simple">
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#python" id="id21">Запуск интерпретатора Python</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id3" id="id22">Интерактивный режим</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id4" id="id23">Программируемый режим</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o1" id="id24">Упражнение №1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#python-3" id="id25">Базовый синтаксис языка Python 3</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id5" id="id26">Типы данных</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id6" id="id27">Операции с числами</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id7" id="id28">Операции над строками</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id8" id="id29">Ветвление</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id9" id="id30">Вложенные условные инструкции</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id10" id="id31">Операторы сравнения</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#bool" id="id32">Тип данных bool</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id11" id="id33">Каскадные условные инструкции</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#while" id="id34">Цикл while</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#for" id="id35">Цикл for</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id12" id="id36">Черепаха</a><ul>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o2-s" id="id37">Упражнение №2: буква S</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o3" id="id38">Упражнение №3: квадрат</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o4" id="id39">Упражнение №4: окружность</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o5" id="id40">Упражнение №5: больше квадратов</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o6" id="id41">Упражнение №6: паук</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o7" id="id42">Упражнение №7: спираль</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o8" id="id43">Упражнение №8: квадратная «спираль»</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id15" id="id44">Написание функций</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o9" id="id45">Упражнение №9: правильные многоугольники</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o10" id="id46">Упражнение №10: «цветок»</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o11" id="id47">Упражнение №11: «бабочка»</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o12" id="id48">Упражнение №12: пружина</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o13" id="id49">Упражнение №13: смайлик</a></li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#o14" id="id50">Упражнение №14: звезды</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://cs.mipt.ru/python/lessons/lab2.html#id17" id="id51">Красивый код на Python</a></li>
+</ul>
+</div>
+<div class="section" id="python">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id21">Запуск интерпретатора Python</a></h2>
+<p>В настоящее время существует две версии языка Python: более старая, но пока ещё более распространённая версия 2 и
+современная версия 3. Мы будем использовать версию 3 данного языка. Именно её необходимо установить дома, скачав данную
+версию с сайта <a class="reference external" href="http://www.python.org/">www.python.org</a>.</p>
+<p>Запустить интерпретатор python можно из командной строки:</p>
+<div class="highlight"><pre><span></span>python3
+</pre></div>
+<p>Будьте внимательны — команда <code>python</code> запустит интерпретатор версии 2, с которым мы работать не будем. В системе
+Windows можно использовать пункт меню «Python (command line)».</p>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id22">Интерактивный режим</a></h3>
+<p>Откройте командную строку и напишите команду python3.</p>
+<p>Вы увидите примерно следующее приглашение командной строки:</p>
+<div class="highlight"><pre><span></span><span class="go">Python 3.7.1 (default, Dec 14 2018, 19:28:38)</span>
+<span class="go">[GCC 7.3.0] :: Anaconda, Inc. on linux</span>
+<span class="go">Type "help", "copyright", "credits" or "license" for more information.</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+<p>Вводите команды и наслаждайтесь результатом. А что можно вводить? Несколько примеров:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">100</span>
+<span class="go">1267650600228229401496703205376</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'Hello'</span> <span class="o">+</span> <span class="s1">'World'</span>
+<span class="go">'HelloWorld'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'ABC'</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="go">'ABCABCABCABCABCABCABCABCABCABC'</span>
+</pre></div>
+<p>Первая команда вычисляет сумму двух чисел, вторая команда вычисляет 2 в степени 100, третья команда выполняет операцию
+<strong>конкатенации</strong> для строк, а четвертая команда печатает строку <code>'ABC'</code>, повторенную 10 раз.</p>
+<p>Хотите закончить работу с питоном? Введите команду <code>exit()</code> (именно так, со скобочками, так как это — <strong>функция</strong>)
+или нажмите <tt class="docutils literal">Ctrl+D</tt>.</p>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id23">Программируемый режим</a></h3>
+<p>В предыдущей главе мы использовали Python для простых разовых вычислений, используя интерактивный режим.
+Теперь создадим программу и выполним её целиком.</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">179</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">197</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+<p>Здесь мы используем  <strong>переменные</strong> — объекты, в которых можно сохранять различные (числовые, строковые и прочие)
+значения. В первой строке переменной <code>a</code> присваивается значение <code>179</code>, затем переменной <code>b</code> присваивается значение
+<code>971</code>, затем переменной <code>c</code> присваивается значение арифметического выражения, равного длине гипотенузы. После этого
+значение переменной <code>c</code> выводится на экран.</p>
+</div>
+<div class="section" id="o1">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id24">Упражнение №1</a></h3>
+<p>Откройте произвольный текстовый редактор, например, <code>spyder</code> или <code>Geany</code>. Скопируйте туда текст программы, написанной выше.
+Сохраните текст в файле с именем <code>hypot.py</code>.</p>
+<p>Запустите <em>терминал</em>, перейдите в каталог, где лежит файл <code>hypot.py</code> и выполните эту программу:</p>
+<div class="highlight"><pre><span></span>python3 hypot.py
+</pre></div>
+<p>Интерпретатор языка Python вместо интерактивного режима выполнит последовательность команд из файла.</p>
+<p>При этом значения вычисленных выражений не выводятся на экран (в
+отличии от интерактивного режима), поэтому для того, чтобы вывести результат работы программы, то есть значение
+переменной <code>c</code>, нужна функция <code>print()</code>.</p>
+</div>
+</div>
+<div class="section" id="python-3">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id25">Базовый синтаксис языка Python 3</a></h2>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id26">Типы данных</a></h3>
+<p>Итак, мы видим, что Python умеет работать как минимум с двумя видами данных — числами и строками. Числа записываются
+последовательностью цифр, также перед числом может стоять знак минус, а строки записываются в одинарных кавычках. <code>2</code>
+и <code>'2'</code> — это разные объекты, первый объект — число, а второй — строка. Операция <tt class="docutils literal">+</tt> для целых чисел и для строк
+работает по-разному: для чисел это сложение, а для строк — конкатенация.</p>
+<p>Кроме целых чисел есть и другой класс чисел: действительные (вещественные числа), представляемые в виде десятичных
+дробей. Они записываются с использованием десятичной точки, например, <code>2.0</code>.</p>
+<p>Определить тип объекта можно при помощи функции <code>type</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&lt;class 'int'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span>
+<span class="go">&lt;class 'str'&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="go">&lt;class 'float'&gt;</span>
+</pre></div>
+<p>Обратите внимание — <code>type</code> является функцией, аргументы функции указываются в скобках после ее имени.</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id27">Операции с числами</a></h3>
+<p>Вот список основных операций для чисел:</p>
+<ul class="simple">
+<li><code>A+B</code> — сумма;</li>
+<li><code>A-B</code> — разность;</li>
+<li><code>A*B</code> — произведение;</li>
+<li><code>A/B</code> — частное;</li>
+<li><code>A**B</code> — возведение в степень.</li>
+</ul>
+<p>Полезно помнить, что квадратный корень из числа <tt class="docutils literal">x</tt> — это <code>x**0.5</code>, а корень степени <tt class="docutils literal">n</tt> — это <code>x**(1/n)</code>.</p>
+<p>Есть также унарный вариант операции <tt class="docutils literal">-</tt>, то есть операция с одним аргументом. Она возвращает число, противоположное
+данному. Например: <code>-A</code>.</p>
+<p>В выражении может встречаться много операций подряд. Как в этом случае определяется порядок действий? Например, чему
+будет равно <code>1+2*3**1+1</code>? В данном случае ответ будет 8, так как сначала выполняется возведение в степень, затем —
+умножение, затем —  сложение.</p>
+<p>Более общие правила определения приоритетов операций такие:</p>
+<ol class="arabic simple">
+<li>Выполняются возведения в степень  <strong>справа налево</strong>, то есть <code>3**3**3</code> это 3²⁷.</li>
+<li>Выполняются унарные минусы (отрицания).</li>
+<li>Выполняются умножения и деления слева направо. Операции умножения и деления имеют одинаковый приоритет.</li>
+<li>Выполняются сложения и вычитания слева направо. Операции сложения и вычитания имеют одинаковый приоритет.</li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id28">Операции над строками</a></h3>
+<ul class="simple">
+<li><code>A+B</code> — конкатенация;</li>
+<li><code>A*n</code> — повторение <tt class="docutils literal">n</tt> раз, значение <tt class="docutils literal">n</tt> должно быть целого типа.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id29">Ветвление</a></h3>
+<p>Ветвление (или условная инструкция) в Python имеет следующий синтаксис:</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Условие</span><span class="p">:</span>
+    <span class="n">Блок_инструкций_1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">Блок_инструкций_2</span>
+</pre></div>
+<p><code>Блок_инструкций_1</code> будет выполнен, если <code>Условие</code> истинно.  Если <code>Условие</code> ложно, будет выполнен <code>Блок_инструкций_2</code>.</p>
+<p>В условной инструкции может отсутствовать слово <code>else</code> и последующий блок. Такая инструкция называется неполным
+ветвлением.  Например, если дано число <code>x</code> и мы хотим заменить его на абсолютную величину <code>x</code>, то это можно сделать
+следующим образом:</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+<p>В этом примере переменной <code>x</code> будет присвоено значение <code>-x</code>, но только в том случае, когда <code>x&lt;0</code>. А вот инструкция
+<code>print(x)</code> будет выполнена всегда, независимо от проверяемого условия.</p>
+<p>Для выделения блока инструкций, относящихся к инструкции <code>if</code> или <code>else</code> в  языке Python используются отступы. Все
+инструкции, которые относятся к одному блоку, должны иметь равную величину отступа, то есть одинаковое число пробелов в
+начале строки. Рекомендуется использовать <em>отступ в 4 пробела</em>.</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id30">Вложенные условные инструкции</a></h3>
+<p>Внутри условных инструкций можно использовать любые инструкции языка Python, в том числе и условную инструкцию.
+Вложенное ветвление — после одной развилки в ходе исполнения программы появляется другая развилка. При этом вложенные
+блоки имеют больший размер отступа (например, 8 пробелов).</p>
+<p>Примере программы, которая по данным ненулевым
+числам x и y определяет, в какой из четвертей координатной плоскости находится точка (x,y):</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+   <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>               <span class="c1"># x&gt;0, y&gt;0</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"Первая четверть"</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>                   <span class="c1"># x&gt;0, y&lt;0</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"Четвертая четверть"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+   <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>               <span class="c1"># x&lt;0, y&gt;0</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"Вторая четверть"</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span>                   <span class="c1"># x&lt;0, y&lt;0</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"Третья четверть"</span><span class="p">)</span>
+</pre></div>
+<p>В этом примере мы использовали <em>комментарии</em> – текст, который интерпретатор игнорирует.  Комментариями в Pythonе
+является символ <code>#</code> и весь текст после этого символа до конца строки.
+Желательно писать код так, чтобы комментарии были излишними, однако допускается писать их там, где возникают "призраки"
+(утверждения или теоремы, которые использованы при написании кода, но не следуют из самого кода).
+Однако код выше является <strong>плохим примером документации</strong>: комментарии врут, поскольку автором не учтены точки на осях.</p>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id31">Операторы сравнения</a></h3>
+<p>Как правило, в качестве проверяемого условия используется результат вычисления одного из следующих операторов сравнения:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%">
+<col width="89%">
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Оператор</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><code>&lt;</code></td>
+<td>Меньше — условие верно, если первый операнд меньше второго.</td>
+</tr>
+<tr><td><code>&gt;</code></td>
+<td>Больше — условие верно, если первый операнд больше второго.</td>
+</tr>
+<tr><td><code>&lt;=</code></td>
+<td>Меньше или равно — условие верно, если первый операнд меньше или равен второму.</td>
+</tr>
+<tr><td><code>&gt;=</code></td>
+<td>Больше или равно — условие верно, если первый операнд больше или равен второму.</td>
+</tr>
+<tr><td><code>==</code></td>
+<td>Равенство. Условие верно, если два операнда равны.</td>
+</tr>
+</tbody>
+</table>
+<p>Например, условие <code>(x * x &lt; 1000)</code> означает «значение <code>x * x</code> меньше 1000», а условие <code>(2 * x != y)</code> означает «удвоенное
+значение переменной <code>x</code> не равно значению переменной <code>y</code>».</p>
+<p>Операторы сравнения в можно объединять в цепочки, например, <code>a == b == c</code> или <code>1 &lt;= x &lt;= 10</code>.</p>
+</div>
+<div class="section" id="bool">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id32">Тип данных bool</a></h3>
+<p>Операторы сравнения возвращают значения специального логического типа <code>bool</code>. Значения логического типа могут принимать
+одно из двух значений: <code>True</code> (истина) или <code>False</code> (ложь). Если преобразовать логическое <code>True</code> к типу <code>int</code>, то
+получится 1, а преобразование <code>False</code> даст 0. При обратном преобразовании число 0 преобразуется в <code>False</code>, а любое
+ненулевое число в <code>True</code>. При преобразовании <code>str</code> в <code>bool</code> пустая строка преобразовывается в <code>False</code>, а любая непустая
+строка в <code>True</code>.</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id33">Каскадные условные инструкции</a></h3>
+<p>Пример программы, определяющий четверть координатной плоскости, можно переписать используя «каскадную«
+последовательность операцией <code>if... elif... else</code>:</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Первая четверть"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Вторая четверть"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Третья четверть"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Четвертая четверть"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Точка находится на осях или в центре координат."</span><span class="p">)</span>
+</pre></div>
+<p>В такой конструкции условия <code>if</code>, ..., <code>elif</code> проверяются по очереди, выполняется блок, соответствующий первому из
+истинных условий. Если все проверяемые условия ложны, то выполняется блок <code>else</code>, если он присутствует.
+Обратите внимание, что таким образом мы чётче видим условия наступления случаев (нет "призраков"), а также
+отлавливаем ситуацию, когда точка не находится ни в одной из четвертей.</p>
+</div>
+<div class="section" id="while">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id34">Цикл while</a></h3>
+<p>Цикл <code>while</code> («пока») позволяет выполнить одну и ту же последовательность действий, пока проверяемое условие истинно.
+Условие записывается до тела цикла и проверяется до выполнения тела цикла. Как правило, цикл <code>while</code> используется, когда
+невозможно определить точное значение количества проходов исполнения цикла.</p>
+<p>Синтаксис цикла <code>while</code> в простейшем случае выглядит так:</p>
+<div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">Условие</span><span class="p">:</span>
+    <span class="n">Блок_инструкций</span>
+</pre></div>
+<p>При выполнении цикла <code>while</code> сначала проверяется условие. Если оно ложно, то  выполнение цикла прекращается и управление
+передается на следующую инструкцию после тела цикла <code>while</code>. Если условие истинно, то выполняется инструкция, после чего
+условие проверяется снова и снова выполняется инструкция. Так продолжается до тех пор, пока условие будет истинно. Как
+только условие станет ложно, работа цикла завершится и управление передастся следующей инструкции после цикла.</p>
+<p>Например, следующий фрагмент программы напечатает на экран всех целые числа, не превосходящие n:</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+<p>Общая схема цикла <code>while</code> в данном случае для перебора всех подходящих значений такая:</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">начальное_значение</span>
+<span class="k">while</span> <span class="n">а_является_подходящим_числом</span><span class="p">:</span>
+    <span class="n">обработать_a</span>
+    <span class="n">перейти_к_следующему_a</span>
+</pre></div>
+<p>Выводем все степени двойки, не превосходящие числа n:</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">*=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<div class="section" id="for">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id35">Цикл for</a></h3>
+<p>Цикл <code>for</code> может быть использован как более краткая альтернатива циклу <code>while</code>.</p>
+<p>Для последовательного перебора целых чисел из диапазона <code>[0; n)</code> можно использовать цикл <code>for</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+<p>Этот код по выполняемым действиям полностью соответствуют циклу <code>while</code>:</p>
+<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+<p>Можно задавать начальные и конечные значения для переменной цикла, а также шаг:</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+<p>Аналогичный цикл <code>while</code></p>
+<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">i</span> <span class="o">-=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id36">Черепаха</a></h2>
+<p>Стандартная библиотека Python содержит модуль <code>turtle</code>, предназначенный для обучения программированию. Этот модуль
+содержит <a class="reference external" href="https://docs.python.org/3/library/turtle.html#methods-of-rawturtle-turtle-and-corresponding-functions">набор</a> функций, позволяющих управлять черепахой. Черепаха умеет выполнять небольшой набор команд, а именно:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%">
+<col width="77%">
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Команда</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>forward(X)</td>
+<td>Пройти вперёд X пикселей</td>
+</tr>
+<tr><td>backward(X)</td>
+<td>Пройти назад X пикселей</td>
+</tr>
+<tr><td>left(X)</td>
+<td>Повернуться налево на X градусов</td>
+</tr>
+<tr><td>right(X)</td>
+<td>Повернуться направо на X градусов</td>
+</tr>
+<tr><td>penup()</td>
+<td>Не оставлять след при движении</td>
+</tr>
+<tr><td>pendown()</td>
+<td>Оставлять след при движении</td>
+</tr>
+<tr><td>shape(X)</td>
+<td>Изменить значок черепахи (“arrow”,
+“turtle”, “circle”, “square”, “triangle”,
+“classic”)</td>
+</tr>
+<tr><td>stamp()</td>
+<td>Нарисовать копию черепахи в текущем месте</td>
+</tr>
+<tr><td>color()</td>
+<td>Установить цвет</td>
+</tr>
+<tr><td>begin_fill()</td>
+<td>Необходимо вызвать перед рисованием фигуры,
+которую надо закрасить</td>
+</tr>
+<tr><td>end_fill()</td>
+<td>Вызвать после окончания рисования фигуры</td>
+</tr>
+<tr><td>width()</td>
+<td>Установить толщину линии</td>
+</tr>
+<tr><td>goto(x, y)</td>
+<td>Переместить черепашку в точку (x, y)</td>
+</tr>
+</tbody>
+</table>
+<p>Например, следующая программа рисует букву <code>S</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">turtle</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">'turtle'</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/example.gif">
+<div class="section" id="o2-s">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id37">Упражнение №2: буква S</a></h3>
+<p>Сохраните и выполните предыдущую программу. Убедитесь в том, что черепаха работает.</p>
+</div>
+<div class="section" id="o3">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id38">Упражнение №3: квадрат</a></h3>
+<p>Нарисуйте квадрат. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/rectangle.gif">
+</div>
+<div class="section" id="o4">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id39">Упражнение №4: окружность</a></h3>
+<p>Нарисуйте окружность. Воспользуйтесь тем фактом, что правильный многоугольник с большим числом сторон  будет выглядеть
+как окружность. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/circle.gif">
+</div>
+<div class="section" id="o5">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id40">Упражнение №5: больше квадратов</a></h3>
+<p>Нарисуйте 10 вложенных квадратов.</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/nested_rectangles.gif">
+</div>
+<div class="section" id="o6">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id41">Упражнение №6: паук</a></h3>
+<p>Нарисуйте паука с n лапами. Пример n = 12:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/spider.gif">
+</div>
+<div class="section" id="o7">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id42">Упражнение №7: спираль</a></h3>
+<p>Нарисуйте спираль. См. <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%90%D1%80%D1%85%D0%B8%D0%BC%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0_%D1%81%D0%BF%D0%B8%D1%80%D0%B0%D0%BB%D1%8C">теорию</a>. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/spiral.gif">
+</div>
+<div class="section" id="o8">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id43">Упражнение №8: квадратная «спираль»</a></h3>
+<p>Нарисуйте «квадратную» спираль. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/rect_spiral.gif">
+</div>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id44">Написание функций</a></h3>
+<p>Как было сказано раньше, функции — это своего рода готовые кирпичики, из которых строится программа. До этого момента мы
+<em>использовали</em> стандартные функции (<code>print</code>, <code>input</code>, функции модуля <code>turtle</code>), теперь настало время <em>написать</em> функцию:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">'Hello, '</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">'!'</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hello</span><span class="p">(</span><span class="s1">'world'</span><span class="p">)</span>
+<span class="go">Hello,  world!</span>
+</pre></div>
+<p>Это простейший пример функции, которая принимает в качестве <strong>параметра</strong> имя, а затем выводит на экран сообщение
+<code>Hello, &lt;имя&gt;</code>. Как видно из примера, функции в языке Python описываются при помощи ключевого слова <code>def</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Имя_функции</span><span class="p">(</span><span class="n">параметр_1</span><span class="p">,</span> <span class="n">параметр_2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+    <span class="n">Блок_операций</span>
+</pre></div>
+<p>Так же, как и в случае циклов и условных операторов, <strong>тело</strong> функции выделяется при помощи отступов.</p>
+<p>Вызов функции осуществляется по имени с указанием параметров:</p>
+<div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">(</span><span class="s1">'world'</span><span class="p">)</span>
+</pre></div>
+<p>Внутри функции можно использовать те же синтаксические конструкции, что и вне её — циклы, ветвления, можно даже
+описывать новые функции. Естественно, внутри функции можно работать и с переменными.</p>
+<p>Написанная ранее функция имеет особенность — она просто просто выводит текст на экран и не возвращает никакого
+результата. Многие функции, напротив, занимаются вычислением какого-либо значения, а затем <strong>возвращают</strong> его тому, кто
+эту функцию <strong>вызвал</strong>. В качестве примера можно рассмотреть функцию для сложения двух чисел:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">-2</span>
+</pre></div>
+<p>Для возврата значения из функции используется оператор <code>return</code>: в качестве параметра указывается значение, которое
+требуется вернуть.</p>
+</div>
+<div class="section" id="o9">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id45">Упражнение №9: правильные многоугольники</a></h3>
+<p>Нарисуйте 10 вложенных правильных многоугольников. Используйте функцию, рисующую правильный n-угольник. <a class="reference external" href="https://www.fxyz.ru/%D1%84%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D1%8B_%D0%BF%D0%BE_%D0%B3%D0%B5%D0%BE%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%B8/%D0%BF%D0%BB%D0%BE%D1%81%D0%BA%D0%B8%D0%B5_%D1%84%D0%B8%D0%B3%D1%83%D1%80%D1%8B/%D0%B2%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B8_%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%D0%B8/%D1%80%D0%B0%D0%B4%D0%B8%D1%83%D1%81_%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%BD%D0%BE%D0%B9_%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8/%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%D0%B0/">Формулы</a> для
+нахождения радиуса описанной окружности. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/regular_polygon.gif">
+</div>
+<div class="section" id="o10">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id46">Упражнение №10: «цветок»</a></h3>
+<p>Нарисуйте «цветок» из окружностей. Используйте функцию, рисующую окружность. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/flower.gif">
+</div>
+<div class="section" id="o11">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id47">Упражнение №11: «бабочка»</a></h3>
+<p>Нарисуйте «бабочку» из окружностей. Используйте функцию, рисующую окружность. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/butterfly.gif">
+</div>
+<div class="section" id="o12">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id48">Упражнение №12: пружина</a></h3>
+<p>Нарисуйте пружину. Используйте функцию, рисующую дугу. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/spring.gif">
+</div>
+<div class="section" id="o13">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id49">Упражнение №13: смайлик</a></h3>
+<p>Нарисуйте смайлик с помощью написанных функций рисования круга и дуги. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/smile.gif">
+</div>
+<div class="section" id="o14">
+<h3><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id50">Упражнение №14: звезды</a></h3>
+<p>Нарисуйте две звезды: одну с 5 вершинами, другую — с 11. Используйте функцию, рисующую звезду с n вершинами. Пример:</p>
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/star5.gif">
+<img alt="" src="./Исполнитель _Черепаха_ (ч.1)_files/star11.gif">
+</div>
+</div>
+<div class="section" id="id17">
+<h2><a class="toc-backref" href="http://cs.mipt.ru/python/lessons/lab2.html#id51">Красивый код на Python</a></h2>
+<p>Важная мысль создателя языка Python,  <code>Гвидо ван Россума</code>: <strong>код читается намного больше раз, чем пишется</strong>.</p>
+<p>Поэтому существуют рекомендации о стиле кодирования PEP8. Они направлены на то, чтобы улучшить читаемость и сделать его согласованным между большим числом проектов. В идеале, весь код будет написан в едином стиле, и любой сможет легко его прочесть.</p>
+<p>На русском можно прочитать про PEP8 <a class="reference external" href="http://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html">тут</a>, на английском — <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/%22%3Ehttps://www.python.org/dev/peps/pep-0008/w">здесь</a>.</p>
+</div>
+
+    </article></div><!-- /.entry-content -->
+
+  
+
+                <section id="extras" class="body">
+                </section><!-- /#extras -->
+            </div>
+        
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Сайт построен с использованием <a href="http://getpelican.com/">Pelican</a>. За основу оформления взята тема от <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>. Исходные тексты программ, приведённые на этом сайте, распространяются под лицензией <a href="https://www.gnu.org/licenses/quick-guide-gplv3.ru.html">GPLv3</a>, все остальные материалы сайта распространяются под лицензией <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+
+</body></html>
